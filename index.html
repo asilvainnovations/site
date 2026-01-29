@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="https://asilvainnovations.com/assets/apps/user_1097/app_13212/draft/icon/app_logo.png?1769599691" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>ASilva Innovations | AI-Powered Resilience Solutions for LGUs & NGOs</title>
+    <meta name="title" content="ASilva Innovations | AI-Powered Resilience Solutions for LGUs & NGOs" />
+    <meta name="description" content="Enterprise-grade risk management platforms for Local Government Units, NGOs, and SMEs. DDRiVE-M delivers real-time vulnerability mapping, predictive analytics, and compliance tracking." />
+    <meta name="keywords" content="disaster risk reduction, LGU software, NGO technology, resilience platform, AI for social impact, Philippine tech, DDRiVE-M, disaster management" />
+    <meta name="author" content="ASilva Innovations" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://asilvainnovations.com/" />
+    <meta property="og:title" content="ASilva Innovations: Building Resilient Communities Through Technology" />
+    <meta property="og:description" content="Flagship DDRiVE-M platform empowers LGUs and NGOs with predictive analytics and real-time risk intelligence." />
+    <meta property="og:image" content="https://asilvainnovations.com/assets/og-image-resilience.jpg" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://asilvainnovations.com/" />
+    <meta property="twitter:title" content="ASilva Innovations: Building Resilient Communities" />
+    <meta property="twitter:description" content="Enterprise-grade risk management platforms for LGUs, NGOs, and SMEs." />
+    <meta property="twitter:image" content="https://asilvainnovations.com/assets/og-image-resilience.jpg" />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#020617" />
+    <link rel="canonical" href="https://asilvainnovations.com" />
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://asilvainnovations.com" />
+    
+    <style>
+      /* Critical CSS for initial render */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        background-color: #020617;
+        color: #f1f5f9;
+        overflow-x: hidden;
+      }
+      
+      /* Loading screen */
+      #loading-screen {
+        position: fixed;
+        inset: 0;
+        background: #020617;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      #loading-screen.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loader {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(59, 130, 246, 0.2);
+        border-top-color: #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      /* Screen reader only utility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      
+      .sr-only:focus {
+        position: fixed;
+        width: auto;
+        height: auto;
+        padding: 1rem 1.5rem;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading screen -->
+    <div id="loading-screen">
+      <div class="loader"></div>
+    </div>
+    
+    <!-- Main app container -->
+    <div id="root"></div>
+    
+    <!-- Main app script -->
+    <script type="module" src="/main.jsx"></script>
+    
+    <!-- Remove loading screen after app loads -->
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loader = document.getElementById('loading-screen');
+          if (loader) {
+            loader.classList.add('fade-out');
+            setTimeout(() => loader.remove(), 500);
+          }
+        }, 500);
+      });
+    </script>
+  </body>
+</html>
