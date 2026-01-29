@@ -2,6 +2,7 @@
   "name": "asilva-innovations-website",
   "version": "2.0.0",
   "private": true,
+  "type": "module",
   "description": "Enterprise-grade resilience platform website for ASilva Innovations",
   "author": "ASilva Innovations",
   "license": "MIT",
