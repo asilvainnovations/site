@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 // Official logo URL
-const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png";
+const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
 
 // Intersection Observer Hook for scroll animations
 const useIntersectionObserver = (options = {}) => {
