@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
 // Official logo URL
-const OFFICIAL_LOGO_URL = "https://asilvainnovations.com/assets/apps/user_1097/app_13212/draft/icon/app_logo.png?1769599691";
+const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/e42a348ec295_487_1097.png";
 
 // Intersection Observer Hook for scroll animations
 const useIntersectionObserver = (options = {}) => {
@@ -216,7 +216,7 @@ function App() {
       description: 'AI-powered strategic planning suite that transforms complex data into actionable roadmaps with automated analysis and performance tracking.',
       icon: '🚀',
       features: ['AI-Powered SWOT Analysis', 'Dynamic Balanced Scorecard', 'Portfolio Tracking', 'Stakeholder Alignment'],
-      link: 'https://asilvainnovations.com/strat-planner/',
+      link: 'https://asilvainnovations.com/strat-planner-pro/',
       gradient: 'from-amber-600 to-orange-600'
     },
     {
@@ -322,7 +322,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>ASilva Innovations | AI-Powered Resilience Solutions for LGUs & NGOs</title>
+        <title>ASilva Innovations | Real-Time, AI-Powered and Analytics for Resilience Solutions</title>
         <meta name="description" content="Enterprise-grade risk management platforms for Local Government Units, NGOs, and SMEs. DDRiVE-M delivers real-time vulnerability mapping, predictive analytics, and compliance tracking." />
         <meta name="keywords" content="disaster risk reduction, LGU software, NGO technology, resilience platform, AI for social impact, Philippine tech" />
         <meta property="og:title" content="ASilva Innovations: Building Resilient Communities Through Technology" />
@@ -812,8 +812,8 @@ function App() {
                       👤
                     </div>
                     <div className="text-left">
-                      <div className="font-bold text-lg text-white">Maria Santos</div>
-                      <div className="text-sm text-blue-200/80">Municipal DRRMO Chief</div>
+                      <div className="font-bold text-lg text-white">Arnold Pica</div>
+                      <div className="text-sm text-blue-200/80">Municipal DRRM Officer</div>
                       <div className="text-xs text-slate-400">Salcedo, Eastern Samar</div>
                     </div>
                   </div>
@@ -967,7 +967,7 @@ function App() {
                   >
                     <option value="">Select an option</option>
                     <option value="ddrive">DDRiVE-M Implementation</option>
-                    <option value="stratplanner">Strategic Planner Consulting</option>
+                    <option value="stratplanner">Strategic Planner Pro Integration</option>
                     <option value="rtl">Real-Time Leadership Deployment</option>
                     <option value="custom">Custom AI Solution</option>
                     <option value="partnership">Partnership Inquiry</option>
@@ -1075,9 +1075,9 @@ function App() {
               <ul className="space-y-3">
                 {[
                   { name: 'About Us', url: 'https://asilvainnovations.com/about' },
-                  { name: 'Case Studies', url: 'https://asilvainnovations.com/case-studies' },
-                  { name: 'Careers', url: 'https://asilvainnovations.com/careers' },
-                  { name: 'Partners', url: 'https://asilvainnovations.com/partners' }
+                  { name: 'Resilience Insights', url: 'https://asilvainnovations.com/blog' },
+                  { name: 'Contact Us', url: 'https://asilvainnovations.com/contact' },
+                  { name: 'Partnerships', url: 'https://asilvainnovations.com/contact' }
                 ].map((item, i) => (
                   <li key={i}>
                     <a 
@@ -1100,8 +1100,8 @@ function App() {
                 {[
                   { name: 'Blog', url: 'https://asilvainnovations.com/blog' },
                   { name: 'DRRM Compliance Guide', url: 'https://asilvainnovations.com/resources/drrm-guide' },
-                  { name: 'Webinars', url: 'https://asilvainnovations.com/webinars' },
-                  { name: 'Documentation', url: 'https://docs.asilvainnovations.com' }
+                  { name: 'Integrated Risk Management', url: 'https://asilvainnovations.com/ddrive-m' },
+                  { name: 'Learning Opportunities', url: 'https://asilvainnovations.com/rtl' }
                 ].map((item, i) => (
                   <li key={i}>
                     <a 
