@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { ASilvaBlogPlatform } from './components/ASilvaBlogPlatform';
+import type { BlogPost, ASilvaBlogPlatformProps } from './components/ASilvaBlogPlatform';
+import { useBlogPosts } from './components/ASilvaBlogPlatform';
 
 // Official logo URL
 const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
