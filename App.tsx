@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { ASilvaBlogPlatform } from './components/ASilvaBlogPlatform';
 
 // Official logo URL
 const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
 
 // Intersection Observer Hook for scroll animations
-const useIntersectionObserver = (options = {}) => {
+const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
-  const targetRef = useRef(null);
+  const targetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -26,14 +27,20 @@ const useIntersectionObserver = (options = {}) => {
     };
   }, [options]);
 
-  return [targetRef, isIntersecting];
+  return [targetRef, isIntersecting] as const;
 };
 
 // Animated Counter Component
-const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
+interface AnimatedCounterProps {
+  end: number;
+  duration?: number;
+  suffix?: string;
+}
+
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = '' }) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
-  const counterRef = useRef(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,8 +66,8 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
   useEffect(() => {
     if (!isVisible) return;
 
-    let startTime;
-    const animate = (currentTime) => {
+    let startTime: number;
+    const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
       
@@ -82,7 +89,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
 };
 
 // Stats Section Component
-const StatsSection = () => {
+const StatsSection: React.FC = () => {
   const [ref, isVisible] = useIntersectionObserver();
 
   const stats = [
@@ -123,7 +130,17 @@ const StatsSection = () => {
 };
 
 // Feature Highlight Component with animations
-const FeatureHighlight = ({ feature, index }) => {
+interface FeatureHighlightProps {
+  feature: {
+    icon: string;
+    title: string;
+    description: string;
+    benefits: string[];
+  };
+  index: number;
+}
+
+const FeatureHighlight: React.FC<FeatureHighlightProps> = ({ feature, index }) => {
   const [ref, isVisible] = useIntersectionObserver();
 
   return (
@@ -159,8 +176,28 @@ const FeatureHighlight = ({ feature, index }) => {
   );
 };
 
+// Service interface
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  features: string[];
+  link: string;
+  gradient: string;
+}
+
+// Persona interface
+interface Persona {
+  target: string;
+  desc: string;
+  icon: string;
+  stats: string;
+  color: string;
+}
+
 // Main App Component
-function App() {
+const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeTab, setActiveTab] = useState('ddrive');
@@ -173,14 +210,17 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     
     // Simulate initial load
-    setTimeout(() => setIsLoading(false), 1000);
+    const timer = setTimeout(() => setIsLoading(false), 1000);
     
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timer);
+    };
   }, []);
 
   // Close mobile menu on escape key
   useEffect(() => {
-    const handleEscape = (e) => {
+    const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isMenuOpen) {
         setIsMenuOpen(false);
       }
@@ -200,7 +240,7 @@ function App() {
   }, [isMenuOpen]);
 
   // Services data
-  const services = [
+  const services: Service[] = [
     {
       id: 'ddrive',
       title: 'DDRiVE-M Platform',
@@ -240,7 +280,7 @@ function App() {
   ];
 
   // Target personas
-  const personas = [
+  const personas: Persona[] = [
     {
       target: "Local Government Units",
       desc: "End-to-end digital transformation for disaster resilience, compliance management, and community protection. Deployable in 30 days.",
@@ -362,8 +402,11 @@ function App() {
                   alt="ASilva Innovations logo"
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = '<div class="text-white font-bold text-lg">A</div>';
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    if (target.parentElement) {
+                      target.parentElement.innerHTML = '<div class="text-white font-bold text-lg">A</div>';
+                    }
                   }}
                   loading="eager"
                 />
@@ -897,11 +940,11 @@ function App() {
                 className="space-y-6" 
                 onSubmit={(e) => {
                   e.preventDefault();
-                  const formData = new FormData(e.target);
+                  const formData = new FormData(e.target as HTMLFormElement);
                   const data = Object.fromEntries(formData);
                   console.log('Form submitted:', data);
                   alert('Thank you for your inquiry! Our team will contact you within 24 business hours.');
-                  e.target.reset();
+                  (e.target as HTMLFormElement).reset();
                 }}
                 aria-label="Contact form"
               >
@@ -981,7 +1024,7 @@ function App() {
                   <textarea 
                     id="message" 
                     name="message"
-                    rows="4"
+                    rows={4}
                     className="w-full bg-slate-800/70 border border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-white font-medium placeholder-slate-500 resize-none hover:border-white/20"
                     placeholder="Tell us about your organization's needs..."
                   ></textarea>
@@ -1019,8 +1062,11 @@ function App() {
                     className="w-full h-full object-contain"
                     loading="lazy"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.parentElement.innerHTML = '<div class="text-white font-bold text-lg">A</div>';
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                      if (target.parentElement) {
+                        target.parentElement.innerHTML = '<div class="text-white font-bold text-lg">A</div>';
+                      }
                     }}
                   />
                 </div>
@@ -1222,6 +1268,6 @@ function App() {
       `}</style>
     </>
   );
-}
+};
 
 export default App;
