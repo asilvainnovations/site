@@ -914,7 +914,7 @@ const App: React.FC = () => {
               {/* ASilva Innovations Image Showcase */}
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 hover:scale-105 transition-transform duration-500 group">
                 <img
-                  src={https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg}
+                  src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
                   alt="ASilva Innovations Banner"
                   className="w-full h-64 object-cover"
                   loading="lazy"
@@ -923,8 +923,8 @@ const App: React.FC = () => {
                 <div className="absolute bottom-6 left-6">
                   <div className="text-white">
                     <div className="text-blue-400 font-bold text-sm flex items-center gap-2">
-                      <span aria-hidden="true">🧠</span>
-                      <span>Real-Time Leadership</span>
+                      <span aria-hidden="true"></span>
+                      <span></span>
                     </div>
                     <div className="text-xl font-bold mt-1">Actionable Intelligence for Life-Saving Decisions</div>
                   </div>
