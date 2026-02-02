@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { ASilvaBlogPlatform } from './components/ASilvaBlogPlatform';
-import type { BlogPost, ASilvaBlogPlatformProps } from './components/ASilvaBlogPlatform';
-import { useBlogPosts } from './components/ASilvaBlogPlatform';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // Official logo URL with high-contrast container
 const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
@@ -373,7 +371,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <>
+    <HelmetProvider>
       <Helmet>
         <title>ASilva Innovations | Real-Time, AI-Powered and Analytics for Resilience Solutions</title>
         <meta name="description" content="Enterprise-grade risk management platforms for Local Government Units, NGOs, and SMEs. DDRiVE-M delivers real-time vulnerability mapping, predictive analytics, and compliance tracking." />
@@ -1329,7 +1327,7 @@ const App: React.FC = () => {
         }
         .animate-pulse-slow { animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
       `}</style>
-    </>
+    </HelmetProvider>
   );
 };
 

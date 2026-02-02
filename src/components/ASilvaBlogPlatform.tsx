@@ -1,6 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import { Camera, Plus, Eye, Edit3, Trash2, Save, X, Calendar, Tag, Share2, Search, Menu, Sun, Moon, Users, BarChart3, Mail, Settings, Image as ImageIcon, Video, Code, Link as LinkIcon, Bold, Italic, List, AlignLeft, ChevronDown, Upload, AlertCircle, Check, TrendingUp, FileText, Layout, Zap } from 'lucide-react';
 
+export interface BlogPost {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: string;
+  author: string;
+  publishDate: string;
+  status: 'draft' | 'published' | 'scheduled';
+  category: string;
+  tags: string[];
+  featuredImage: string;
+  views: number;
+  readTime: number;
+}
+
+export interface ASilvaBlogPlatformProps {
+  initialPosts?: BlogPost[];
+  onPostCreate?: (post: BlogPost) => void;
+  onPostUpdate?: (post: BlogPost) => void;
+  onPostDelete?: (postId: number) => void;
+}
+
+export const useBlogPosts = (initialPosts?: BlogPost[]) => {
+  const [posts, setPosts] = useState<BlogPost[]>(initialPosts || []);
+
+  const addPost = (post: BlogPost) => {
+    setPosts(prev => [...prev, post]);
+  };
+
+  const updatePost = (post: BlogPost) => {
+    setPosts(prev => prev.map(p => p.id === post.id ? post : p));
+  };
+
+  const deletePost = (postId: number) => {
+    setPosts(prev => prev.filter(p => p.id !== postId));
+  };
+
+  return { posts, addPost, updatePost, deletePost, setPosts };
+};
+
 // Utility function for class names
 const cn = (...classes) => classes.filter(Boolean).join(' ');
 
@@ -2035,4 +2076,5 @@ const styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
 
+export { ASilvaBlogPlatform };
 export default ASilvaBlogPlatform;
