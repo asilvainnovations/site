@@ -1165,8 +1165,7 @@ const App: React.FC = () => {
                 </span>
               </div>
               <p className="text-slate-400 leading-relaxed max-w-xs">
-                Building resilient communities through ethical AI and human-centered design since 2020. Headquartered in Quezon City, Philippines.
-              </p>
+                Building resilient communities through ethical AI, analytics, and human-centered design.              </p>
               <div className="flex gap-4 pt-2">
                 {[
                   { icon: 'in', label: 'LinkedIn', url: 'https://linkedin.asilva-innovations.com' },
