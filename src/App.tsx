@@ -648,7 +648,7 @@ const App: React.FC = () => {
               <div className="flex flex-wrap gap-4 pt-4 text-sm justify-center">
                 <div className="flex items-center gap-2 text-emerald-400 font-medium animate-fadeIn bg-emerald-950/30 px-4 py-2 rounded-full border border-emerald-500/30 backdrop-blur-sm">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                  <span>Aligned with Philippine Government's Priorities and Standards </span>
+                  <span>Philippine Government Certified</span>
                 </div>
                 <div className="flex items-center gap-2 text-amber-300 font-medium animate-fadeIn bg-amber-950/30 px-4 py-2 rounded-full border border-amber-500/30 backdrop-blur-sm" style={{ animationDelay: '200ms' }}>
                   <div className="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></div>
@@ -842,51 +842,102 @@ const App: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Enhanced Testimonial with Strat Planner Pro Image */}
-                <div className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-500 animate-fadeInRight hover:scale-105 relative overflow-hidden">
-                  {/* Strat Planner Pro Image as background */}
-                  <div className="absolute inset-0 opacity-10">
-                    <img
-                      src={STRAT_PLANNER_IMAGE_URL}
-                      alt="Strategic Planner Pro"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  
-                  <div className="relative z-10">
-                    <div className="flex justify-center gap-1 mb-6" aria-hidden="true">
-                      {[...Array(5)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="text-2xl text-amber-400 animate-bounce"
-                          style={{ animationDelay: `${i * 100}ms` }}
-                        >
-                          ★
+                {/* Testimonials Column */}
+                <div className="space-y-6 animate-fadeInRight">
+                  {/* Testimonial 1 - Arnold Pica */}
+                  <div className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                    {/* Strat Planner Pro Image as background */}
+                    <div className="absolute inset-0 opacity-10">
+                      <img
+                        src={STRAT_PLANNER_IMAGE_URL}
+                        alt="Strategic Planner Pro"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex justify-center gap-1 mb-6" aria-hidden="true">
+                        {[...Array(5)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="text-2xl text-amber-400 animate-bounce"
+                            style={{ animationDelay: `${i * 100}ms` }}
+                          >
+                            ★
+                          </div>
+                        ))}
+                      </div>
+                      <blockquote className="relative">
+                        <div className="absolute -top-4 -left-2 text-6xl text-blue-500/20 font-serif" aria-hidden="true">"</div>
+                        <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-blue-500 pl-6 py-2 relative z-10">
+                          ASilva's DDRiVE-M platform transformed our disaster response capabilities. During Typhoon Kristine, we evacuated 3,200 residents 4 hours faster than previous protocols—saving countless lives.
+                        </p>
+                        <div className="absolute -bottom-4 -right-2 text-6xl text-blue-500/20 font-serif rotate-180" aria-hidden="true">"</div>
+                      </blockquote>
+                      <div className="mt-8 flex items-center justify-center gap-4">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-2xl shadow-lg animate-pulse-slow">
+                          👤
                         </div>
-                      ))}
-                    </div>
-                    <blockquote className="relative">
-                      <div className="absolute -top-4 -left-2 text-6xl text-blue-500/20 font-serif" aria-hidden="true">"</div>
-                      <p className="text-xl md:text-2xl italic font-medium text-center text-blue-100 border-l-4 border-blue-500 pl-6 py-2 relative z-10">
-                        ASilva's DDRiVE-M platform transformed our disaster response capabilities. During Typhoon Kristine, we evacuated 3,200 residents 4 hours faster than previous protocols—saving countless lives.
-                      </p>
-                      <div className="absolute -bottom-4 -right-2 text-6xl text-blue-500/20 font-serif rotate-180" aria-hidden="true">"</div>
-                    </blockquote>
-                    <div className="mt-8 flex items-center justify-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-2xl shadow-lg animate-pulse-slow">
-                        👤
+                        <div className="text-left">
+                          <div className="font-bold text-lg text-white">Arnold Pica</div>
+                          <div className="text-sm text-blue-200/80">Municipal DRRM Officer</div>
+                          <div className="text-xs text-slate-400">Salcedo, Eastern Samar</div>
+                        </div>
                       </div>
-                      <div className="text-left">
-                        <div className="font-bold text-lg text-white">Arnold Pica</div>
-                        <div className="text-sm text-blue-200/80">Municipal DRRM Officer</div>
-                        <div className="text-xs text-slate-400">Salcedo, Eastern Samar</div>
-                      </div>
+                      <footer className="mt-6 text-center text-sm text-slate-400 italic flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        Verified client testimonial • December 2025
+                      </footer>
                     </div>
-                    <footer className="mt-6 text-center text-sm text-slate-400 italic flex items-center justify-center gap-2">
-                      <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                      Verified client testimonial • December 2025
-                    </footer>
+                  </div>
+
+                  {/* Testimonial 2 - Rhadzni Taalim */}
+                  <div className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:scale-105 relative overflow-hidden">
+                    {/* AI Solutions Image as background */}
+                    <div className="absolute inset-0 opacity-10">
+                      <img
+                        src={AI_SOLUTIONS_IMAGE_URL}
+                        alt="AI Solutions"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    
+                    <div className="relative z-10">
+                      <div className="flex justify-center gap-1 mb-6" aria-hidden="true">
+                        {[...Array(5)].map((_, i) => (
+                          <div
+                            key={i}
+                            className="text-2xl text-amber-400 animate-bounce"
+                            style={{ animationDelay: `${i * 100}ms` }}
+                          >
+                            ★
+                          </div>
+                        ))}
+                      </div>
+                      <blockquote className="relative">
+                        <div className="absolute -top-4 -left-2 text-6xl text-emerald-500/20 font-serif" aria-hidden="true">"</div>
+                        <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-emerald-500 pl-6 py-2 relative z-10">
+                          ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) has been transformative for Bangsamoro communities and civil society organizations. Their approach not only strengthened our capacity to anticipate and manage risks but also empowered local stakeholders to build resilience from the ground up.
+                        </p>
+                        <div className="absolute -bottom-4 -right-2 text-6xl text-emerald-500/20 font-serif rotate-180" aria-hidden="true">"</div>
+                      </blockquote>
+                      <div className="mt-8 flex items-center justify-center gap-4">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center text-2xl shadow-lg animate-pulse-slow">
+                          👤
+                        </div>
+                        <div className="text-left">
+                          <div className="font-bold text-lg text-white">Rhadzni Taalim</div>
+                          <div className="text-sm text-emerald-200/80">Executive Director</div>
+                          <div className="text-xs text-slate-400">Bangsamoro Development Agency (BDA), Cotabato City</div>
+                        </div>
+                      </div>
+                      <footer className="mt-6 text-center text-sm text-slate-400 italic flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                        Verified client testimonial • January 2026
+                      </footer>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -911,11 +962,11 @@ const App: React.FC = () => {
                 </p>
               </div>
               
-              {/* ASilva Innovations Image Showcase */}
+              {/* RTL Image Showcase */}
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 hover:scale-105 transition-transform duration-500 group">
                 <img
-                  src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
-                  alt="ASilva Innovations Banner"
+                  src={RTL_IMAGE_URL}
+                  alt="Real-Time Leadership Platform"
                   className="w-full h-64 object-cover"
                   loading="lazy"
                 />
@@ -923,8 +974,8 @@ const App: React.FC = () => {
                 <div className="absolute bottom-6 left-6">
                   <div className="text-white">
                     <div className="text-blue-400 font-bold text-sm flex items-center gap-2">
-                      <span aria-hidden="true"></span>
-                      <span></span>
+                      <span aria-hidden="true">🧠</span>
+                      <span>Real-Time Leadership</span>
                     </div>
                     <div className="text-xl font-bold mt-1">Actionable Intelligence for Life-Saving Decisions</div>
                   </div>
