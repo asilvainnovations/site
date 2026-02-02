@@ -4,6 +4,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 // Official logo URL with high-contrast container
 const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
 
+// Hero background image
+const HERO_BG_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg";
+
 // Service-specific images
 const DDRIVE_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/4750f689086d_379_1097.png";
 const STRAT_PLANNER_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/d6780c531792_34_1097.png";
@@ -57,13 +60,14 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000,
       { threshold: 0.5 }
     );
 
-    if (counterRef.current) {
-      observer.observe(counterRef.current);
+    const currentRef = counterRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (counterRef.current) {
-        observer.unobserve(counterRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [isVisible]);
@@ -344,13 +348,15 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen bg-[#020617] flex items-center justify-center">
         <div className="text-center space-y-6">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl mx-auto flex items-center justify-center animate-pulse border-2 border-white shadow-lg">
-            <img
-              src={logoUrl}
-              alt="ASilva Innovations"
-              className="w-16 h-16 object-contain"
-              loading="eager"
-            />
+          <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full mx-auto flex items-center justify-center animate-pulse shadow-2xl shadow-blue-500/50 border-4 border-white/20 p-2">
+            <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1">
+              <img
+                src={logoUrl}
+                alt="ASilva Innovations"
+                className="w-full h-full object-contain"
+                loading="eager"
+              />
+            </div>
           </div>
           <div className="flex gap-2 justify-center">
             {[0, 1, 2].map((i) => (
@@ -403,9 +409,9 @@ const App: React.FC = () => {
               className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg p-1 -ml-1"
               aria-label="ASilva Innovations homepage"
             >
-              {/* HIGH-CONTRAST LOGO CONTAINER */}
-              <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform duration-300 border-2 border-white">
-                <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-1">
+              {/* CIRCULAR HIGH-CONTRAST LOGO */}
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform duration-300 border-3 border-white">
+                <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                   <img
                     src={logoUrl}
                     alt="ASilva Innovations logo"
@@ -414,7 +420,7 @@ const App: React.FC = () => {
                       const target = e.target as HTMLImageElement;
                       target.style.display = 'none';
                       if (target.parentElement) {
-                        target.parentElement.innerHTML = '<div class="text-blue-600 font-bold text-lg">A</div>';
+                        target.parentElement.innerHTML = '<div class="text-blue-600 font-bold text-xl">A</div>';
                       }
                     }}
                     loading="eager"
@@ -516,10 +522,10 @@ const App: React.FC = () => {
                 </button>
               </div>
               
-              {/* High-contrast logo in mobile menu */}
+              {/* Circular logo in mobile menu */}
               <div className="flex items-center gap-3 py-6 border-b border-white/10">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center p-1.5 border-2 border-white">
-                  <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-1">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 border-3 border-white shadow-lg shadow-blue-500/30">
+                  <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                     <img
                       src={logoUrl}
                       alt="ASilva Innovations logo"
@@ -528,7 +534,7 @@ const App: React.FC = () => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         if (target.parentElement) {
-                          target.parentElement.innerHTML = '<div class="text-blue-600 font-bold text-lg">A</div>';
+                          target.parentElement.innerHTML = '<div class="text-blue-600 font-bold text-xl">A</div>';
                         }
                       }}
                       loading="lazy"
@@ -578,114 +584,75 @@ const App: React.FC = () => {
           </>
         )}
 
-        {/* HERO SECTION */}
+        {/* HERO SECTION - Full Width Background */}
         <header
           id="main-content"
-          className="relative pt-32 md:pt-48 pb-28 px-6 overflow-hidden"
+          className="relative pt-32 md:pt-48 pb-28 px-6 overflow-hidden min-h-[85vh] flex items-center"
           tabIndex={-1}
         >
-          {/* Animated Background */}
-          <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_30%,rgba(37,99,235,0.15),transparent_45%),radial-gradient(circle_at_80%_70%,rgba(79,70,229,0.10),transparent_50%)] animate-pulse-slow"></div>
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl animate-float"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/5 rounded-full blur-3xl animate-float-delayed"></div>
+          {/* Full-width background image */}
+          <div className="absolute inset-0 z-0">
+            <img
+              src={HERO_BG_IMAGE_URL}
+              alt="Hero background"
+              className="w-full h-full object-cover"
+              loading="eager"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
+            />
+            {/* Dark overlay for text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/95 via-[#020617]/85 to-[#020617]/90"></div>
+            {/* Additional gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent"></div>
           </div>
 
-          <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8 animate-fadeInUp">
-              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-300 text-sm font-bold uppercase tracking-wide hover:scale-105 transition-transform duration-300">
+          {/* Animated accents */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl animate-float-delayed"></div>
+          </div>
+
+          <div className="max-w-7xl mx-auto relative z-10 w-full">
+            <div className="max-w-4xl mx-auto text-center space-y-8 animate-fadeInUp">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-blue-500/20 border border-blue-500/40 text-blue-300 text-sm font-bold uppercase tracking-wide hover:scale-105 transition-transform duration-300 backdrop-blur-sm">
                 <div className="text-xl animate-bounce" aria-hidden="true">🏆</div>
                 <span>Trusted by 15+ LGUs Across Southeast Asia</span>
               </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
-                <span className="block text-white">Technology That</span>
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 py-2 animate-gradient">
+                <span className="block text-white drop-shadow-lg">Technology That</span>
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 py-2 animate-gradient drop-shadow-2xl">
                   Builds Unbreakable Communities
                 </span>
               </h1>
-              <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 Enterprise-grade risk intelligence platforms purpose-built for Local Government Units, NGOs, and social enterprises operating in high-risk environments.
                 <span className="text-blue-300 font-semibold"> Transform uncertainty into strategic advantage.</span>
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                 <a
                   href="#contact"
-                  className="group bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
+                  className="group bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl shadow-blue-600/40 hover:shadow-blue-500/60 hover:scale-105 active:scale-95 flex items-center justify-center gap-3"
                 >
                   <span>Schedule a Demo</span>
                   <span className="text-xl group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">→</span>
                 </a>
                 <a
                   href="#services"
-                  className="bg-slate-900/80 hover:bg-slate-800 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/10 backdrop-blur-sm hover:border-blue-500/40 text-center hover:scale-105 active:scale-95"
+                  className="bg-slate-900/90 hover:bg-slate-800/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20 backdrop-blur-sm hover:border-blue-500/50 text-center hover:scale-105 active:scale-95"
                 >
                   View All Solutions
                 </a>
               </div>
-              <div className="flex flex-wrap gap-4 pt-4 text-sm">
-                <div className="flex items-center gap-2 text-emerald-400 font-medium animate-fadeIn">
+              <div className="flex flex-wrap gap-4 pt-4 text-sm justify-center">
+                <div className="flex items-center gap-2 text-emerald-400 font-medium animate-fadeIn bg-emerald-950/30 px-4 py-2 rounded-full border border-emerald-500/30 backdrop-blur-sm">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
                   <span>Philippine Government Certified</span>
                 </div>
-                <div className="flex items-center gap-2 text-amber-300 font-medium animate-fadeIn" style={{ animationDelay: '200ms' }}>
+                <div className="flex items-center gap-2 text-amber-300 font-medium animate-fadeIn bg-amber-950/30 px-4 py-2 rounded-full border border-amber-500/30 backdrop-blur-sm" style={{ animationDelay: '200ms' }}>
                   <div className="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></div>
                   <span>ISO 31000 Compliant</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Hero Visual - Using DDRiVE-M Image */}
-            <div className="relative hidden lg:block animate-fadeInRight">
-              <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-blue-900/40 to-indigo-900/30 rounded-3xl border border-white/10 backdrop-blur-2xl overflow-hidden shadow-2xl shadow-blue-900/50 group hover:scale-105 transition-transform duration-500">
-                <img
-                  src={DDRIVE_IMAGE_URL}
-                  alt="DDRiVE-M Platform Dashboard"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    if (target.parentElement) {
-                      target.parentElement.innerHTML = `
-                        <div class="absolute inset-0 p-6 flex flex-col gap-4">
-                          <div class="flex items-center justify-between p-4 bg-slate-900/60 rounded-xl border border-white/10 backdrop-blur-sm">
-                            <div class="flex items-center gap-3">
-                              <div class="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-                              <span class="text-xs font-bold text-slate-300">LIVE: Eastern Samar Risk Index</span>
-                            </div>
-                          </div>
-                          <div class="flex-1 bg-slate-900/40 rounded-xl border border-white/5 p-4 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-transparent to-indigo-600/10"></div>
-                            <div class="relative z-10 h-full flex items-center justify-center">
-                              <div class="text-center space-y-4">
-                                <div class="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-                                  87%
-                                </div>
-                                <div class="text-slate-400 text-sm">Community Resilience Score</div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      `;
-                    }
-                  }}
-                />
-                {/* Overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-slate-900/80 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <div className="text-blue-400 font-bold text-sm">DDRiVE-M Platform</div>
-                        <div className="text-white font-semibold text-lg mt-1">Real-Time Risk Intelligence</div>
-                      </div>
-                      <div className="flex gap-2">
-                        {[...Array(3)].map((_, i) => (
-                          <div key={i} className="w-2 h-6 bg-gradient-to-t from-blue-500 to-cyan-400 rounded-full opacity-70"></div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -737,7 +704,10 @@ const App: React.FC = () => {
                       loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
-                        target.parentElement!.style.backgroundImage = `linear-gradient(to-br, ${service.gradient})`;
+                        if (target.parentElement) {
+                          target.parentElement.style.background = `linear-gradient(to bottom right, var(--tw-gradient-stops))`;
+                          target.parentElement.className += ` bg-gradient-to-br ${service.gradient}`;
+                        }
                         target.style.display = 'none';
                       }}
                     />
@@ -1121,9 +1091,9 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
-                {/* High-contrast logo in footer */}
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-lg p-1 shadow-lg shadow-blue-500/30 border-2 border-white">
-                  <div className="w-full h-full bg-white rounded-lg flex items-center justify-center p-1">
+                {/* Circular logo in footer */}
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full p-1.5 shadow-lg shadow-blue-500/30 border-3 border-white">
+                  <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                     <img
                       src={logoUrl}
                       alt="ASilva Innovations logo"
@@ -1305,10 +1275,6 @@ const App: React.FC = () => {
         @keyframes gradient {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
-        }
-        @keyframes grow {
-          from { height: 0; }
-          to { height: 3rem; }
         }
         .animate-fadeIn { animation: fadeIn 1s ease-out; }
         .animate-fadeInUp { animation: fadeInUp 1s ease-out; }
