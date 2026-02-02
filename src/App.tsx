@@ -648,7 +648,7 @@ const App: React.FC = () => {
               <div className="flex flex-wrap gap-4 pt-4 text-sm justify-center">
                 <div className="flex items-center gap-2 text-emerald-400 font-medium animate-fadeIn bg-emerald-950/30 px-4 py-2 rounded-full border border-emerald-500/30 backdrop-blur-sm">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
-                  <span>Philippine Government Certified</span>
+                  <span>Aligned with Philippine Government's Priorities and Standards </span>
                 </div>
                 <div className="flex items-center gap-2 text-amber-300 font-medium animate-fadeIn bg-amber-950/30 px-4 py-2 rounded-full border border-amber-500/30 backdrop-blur-sm" style={{ animationDelay: '200ms' }}>
                   <div className="w-2 h-2 rounded-full bg-amber-300 animate-pulse"></div>
@@ -911,11 +911,11 @@ const App: React.FC = () => {
                 </p>
               </div>
               
-              {/* RTL Image Showcase */}
+              {/* ASilva Innovations Image Showcase */}
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 hover:scale-105 transition-transform duration-500 group">
                 <img
-                  src={RTL_IMAGE_URL}
-                  alt="Real-Time Leadership Platform"
+                  src={https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg}
+                  alt="ASilva Innovations Banner"
                   className="w-full h-64 object-cover"
                   loading="lazy"
                 />
