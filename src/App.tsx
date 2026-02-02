@@ -8,7 +8,7 @@ const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5be
 const DDRIVE_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/4750f689086d_379_1097.png";
 const STRAT_PLANNER_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/d6780c531792_34_1097.png";
 const RTL_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/d479ce1cc4b2_113_1097.png";
-const AI_SOLUTIONS_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/placeholder-ai-solutions.png"; // Placeholder for AI solutions
+const AI_SOLUTIONS_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/055b612d128d_302_1097.png";
 
 // Intersection Observer Hook for scroll animations
 const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
@@ -248,7 +248,6 @@ const App: React.FC = () => {
       id: 'ddrive',
       title: 'DDRiVE-M Platform',
       description: 'Flagship Enterprise Risk Management system delivering real-time vulnerability mapping, compliance tracking, and predictive analytics for LGUs and NGOs.',
-      icon: '🛡️',
       features: ['Real-time Risk Indexing', 'Automated LGU Compliance', 'Predictive Vulnerability Mapping', 'Customizable Dashboards'],
       link: 'https://asilvainnovations.com/ddrive-m',
       gradient: 'from-blue-600 to-cyan-600',
@@ -259,7 +258,6 @@ const App: React.FC = () => {
       id: 'stratplanner',
       title: 'Strategic Planner Pro',
       description: 'AI-powered strategic planning suite that transforms complex data into actionable roadmaps with automated analysis and performance tracking.',
-      icon: '🚀',
       features: ['AI-Powered SWOT Analysis', 'Dynamic Balanced Scorecard', 'Portfolio Tracking', 'Stakeholder Alignment'],
       link: 'https://asilvainnovations.com/strat-planner-pro/',
       gradient: 'from-amber-600 to-orange-600',
@@ -270,7 +268,6 @@ const App: React.FC = () => {
       id: 'rtl',
       title: 'Real-Time Leadership',
       description: 'Actionable intelligence platform converting environmental data into life-saving decisions for NGOs and SMEs in high-risk regions.',
-      icon: '🧠',
       features: ['Predictive Crisis Modeling', 'Resource Optimization', 'Impact Reporting Suite', 'Cross-Agency Collaboration'],
       link: 'https://asilvainnovations.com/rtl',
       gradient: 'from-emerald-600 to-teal-600',
@@ -281,7 +278,6 @@ const App: React.FC = () => {
       id: 'ai-solutions',
       title: 'AI & Automation Suite',
       description: 'Specialized AI solutions for public sector challenges including flood prediction, damage assessment, and intelligent resource routing.',
-      icon: '⚡',
       features: ['ML Flood Prediction', 'Automated Damage Assessment', 'Intelligent Resource Routing', 'Custom AI Training'],
       link: 'https://asilvainnovations.com/ai-solutions',
       gradient: 'from-violet-600 to-purple-600',
@@ -575,7 +571,7 @@ const App: React.FC = () => {
                 Get Started Today
               </a>
               <div className="mt-auto pt-8 border-t border-white/10 text-center text-sm text-slate-500 space-y-1">
-                <p>Building resilient communities since 2020</p>
+                <p>Building resilient communities</p>
                 <p>© {new Date().getFullYear()} ASilva Innovations</p>
               </div>
             </div>
