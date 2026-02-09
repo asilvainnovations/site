@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 // Official logo URL with high-contrast container
-const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/5befbf1455c5_87_1097.png";
+const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png";
 
 // Hero background image
 const HERO_BG_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg";
@@ -413,7 +413,7 @@ const App: React.FC = () => {
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform duration-300 border-3 border-white">
                 <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                   <img
-                    src={logoUrl}
+                    src="https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png"
                     alt="ASilva Innovations logo"
                     className="w-full h-full object-contain"
                     onError={(e) => {
@@ -527,7 +527,7 @@ const App: React.FC = () => {
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 border-3 border-white shadow-lg shadow-blue-500/30">
                   <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                     <img
-                      src={logoUrl}
+                      src="https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png"
                       alt="ASilva Innovations logo"
                       className="w-full h-full object-contain"
                       onError={(e) => {
@@ -593,7 +593,7 @@ const App: React.FC = () => {
           {/* Full-width background image */}
           <div className="absolute inset-0 z-0">
             <img
-              src={HERO_BG_IMAGE_URL}
+              src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
               alt="Hero background"
               className="w-full h-full object-cover"
               loading="eager"
@@ -965,8 +965,8 @@ const App: React.FC = () => {
               {/* RTL Image Showcase */}
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 hover:scale-105 transition-transform duration-500 group">
                 <img
-                  src={RTL_IMAGE_URL}
-                  alt="Real-Time Leadership Platform"
+                  src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
+                  alt="Real-Time Lea Platform"
                   className="w-full h-64 object-cover"
                   loading="lazy"
                 />
@@ -975,7 +975,7 @@ const App: React.FC = () => {
                   <div className="text-white">
                     <div className="text-blue-400 font-bold text-sm flex items-center gap-2">
                       <span aria-hidden="true">🧠</span>
-                      <span>Real-Time Leadership</span>
+                      <span>ASilva Innovations</span>
                     </div>
                     <div className="text-xl font-bold mt-1">Actionable Intelligence for Life-Saving Decisions</div>
                   </div>
