@@ -252,18 +252,18 @@ const App: React.FC = () => {
       id: 'ddrive',
       title: 'DDRiVE-M Platform',
       description: 'Flagship Enterprise Risk Management system delivering real-time vulnerability mapping, compliance tracking, and predictive analytics for LGUs and NGOs.',
-      features: ['Real-time Risk Indexing', 'Automated LGU Compliance', 'Predictive Vulnerability Mapping', 'Customizable Dashboards'],
-      link: 'https://asilvainnovations.com/ddrive-m',
+      features: ['Multi-Hazard Detection and Multi-Modal Risk Assessment Tools', 'ISO 31000-Compliant Risk Management System with AI Services', 'UNDRR Resilience Scorecard Assessment Integration', 'Customizable AI-Plan Generators and Dashboards'],
+      link: '#ddrive-m',
       gradient: 'from-blue-600 to-cyan-600',
       imageUrl: DDRIVE_IMAGE_URL,
       imageAlt: 'DDRiVE-M Platform Dashboard Interface'
     },
     {
       id: 'stratplanner',
-      title: 'Strategic Planner Pro',
+      title: 'Strat Planner Pro',
       description: 'AI-powered strategic planning suite that transforms complex data into actionable roadmaps with automated analysis and performance tracking.',
-      features: ['AI-Powered SWOT Analysis', 'Dynamic Balanced Scorecard', 'Portfolio Tracking', 'Stakeholder Alignment'],
-      link: 'https://asilvainnovations.com/strat-planner-pro/',
+      features: ['Systems-Driven Context Analysis', 'AI-Supported Strategic Options Generation', 'Structured Strategy Mapping with Balanced Scorecard', 'Automated and Real-Time Updating of Monitoring, Evaluation, and Learning Dashboard'],
+      link: '#strat-planner-pro/',
       gradient: 'from-amber-600 to-orange-600',
       imageUrl: STRAT_PLANNER_IMAGE_URL,
       imageAlt: 'Strategic Planner Pro Interface'
@@ -271,19 +271,19 @@ const App: React.FC = () => {
     {
       id: 'rtl',
       title: 'Real-Time Leadership',
-      description: 'Actionable intelligence platform converting environmental data into life-saving decisions for NGOs and SMEs in high-risk regions.',
-      features: ['Predictive Crisis Modeling', 'Resource Optimization', 'Impact Reporting Suite', 'Cross-Agency Collaboration'],
-      link: 'https://asilvainnovations.com/rtl',
+      description: 'Systems-based emergency and risk-reduction leadership framework with practical tools to navigate high-risk scenarios and projects.',
+      features: ['Tools on Mastery of Presence', 'Options Generations Toolkit', 'Validating Choices ', 'Cross-Agency Collaboration'],
+      link: '#/rtl',
       gradient: 'from-emerald-600 to-teal-600',
       imageUrl: RTL_IMAGE_URL,
-      imageAlt: 'Real-Time Leadership Dashboard'
+      imageAlt: 'Real-Time Leadership Banner'
     },
     {
       id: 'ai-solutions',
       title: 'AI & Automation Suite',
       description: 'Specialized AI solutions for public sector challenges including flood prediction, damage assessment, and intelligent resource routing.',
-      features: ['ML Flood Prediction', 'Automated Damage Assessment', 'Intelligent Resource Routing', 'Custom AI Training'],
-      link: 'https://asilvainnovations.com/ai-solutions',
+      features: ['SPARC - Smart Predictive AI Resilience Calculator', 'AI Chatbots - Context-aware assistants', 'Customized DRRM Integration - Disaster risk reduction', 'Custom AI-Powered Online Courses on DRR-CCA, and Real-Time Leadership'],
+      link: '#ai-solutions',
       gradient: 'from-violet-600 to-purple-600',
       imageUrl: AI_SOLUTIONS_IMAGE_URL,
       imageAlt: 'AI Solutions Platform'
@@ -381,7 +381,7 @@ const App: React.FC = () => {
         <meta property="og:title" content="ASilva Innovations: Building Resilient Communities Through Technology" />
         <meta property="og:description" content="Flagship DDRiVE-M platform empowers LGUs and NGOs with predictive analytics and real-time risk intelligence." />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="@asilvainnovations" content="summary_large_image" />
         <link rel="canonical" href="https://asilvainnovations.com" />
       </Helmet>
 
@@ -450,7 +450,7 @@ const App: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://asilvainnovations.com/blog"
+                href="#blog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-300 hover:text-blue-300 transition-colors py-2 px-1 flex items-center gap-1"
@@ -871,7 +871,7 @@ const App: React.FC = () => {
                       <blockquote className="relative">
                         <div className="absolute -top-4 -left-2 text-6xl text-blue-500/20 font-serif" aria-hidden="true">"</div>
                         <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-blue-500 pl-6 py-2 relative z-10">
-                          ASilva Innovations' approach in updating our Comprehensive Development Plan into a Risk-Informed Strategic Plan has truly been a game-changer for Salcedo. It gave us a clear and practical framework that integrates disaster risk reduction into our local development priorities. We are very satisfied with how the process empowered our team to make informed decisions, strengthen community resilience, and ensure that development in Salcedo remains sustainable and adaptive to future risks.
+ASilva Innovations' approach in updating our Risk-informed Comprehensive Development Plan has truly been a game-changer giving us a clear and practical framework that integrates disaster risk reduction into our local development priorities. We are very satisfied with how the process and with the empowering tools.
                         </p>
                         <div className="absolute -bottom-4 -right-2 text-6xl text-blue-500/20 font-serif rotate-180" aria-hidden="true">"</div>
                       </blockquote>
@@ -919,7 +919,7 @@ const App: React.FC = () => {
                       <blockquote className="relative">
                         <div className="absolute -top-4 -left-2 text-6xl text-emerald-500/20 font-serif" aria-hidden="true">"</div>
                         <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-emerald-500 pl-6 py-2 relative z-10">
-                          ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) has been transformative for Bangsamoro communities and civil society organizations. Their approach not only strengthened our capacity to anticipate and manage risks but also empowered local stakeholders to build resilience from the ground up.
+ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) has been transformative for Bangsamoro communities and civil society organizations. Their approach not only strengthened our capacity to anticipate and manage risks but also empowered local stakeholders to build resilience from the ground up.
                         </p>
                         <div className="absolute -bottom-4 -right-2 text-6xl text-emerald-500/20 font-serif rotate-180" aria-hidden="true">"</div>
                       </blockquote>
@@ -1210,8 +1210,9 @@ const App: React.FC = () => {
                 {[
                   { name: 'About Us', url: 'https://asilvainnovations.com/about' },
                   { name: 'Resilience Insights', url: 'https://asilvainnovations.com/blog' },
-                  { name: 'Contact Us', url: 'https://asilvainnovations.com/contact' },
-                  { name: 'Partnerships', url: 'https://asilvainnovations.com/contact' }
+                  { name: 'Partnerships', url: 'https://asilvainnovations.com/partnerships' },
+                  { name: 'Contact Us', url: 'https://asilvainnovations.com/contact' }
+      { name: 'Pricing Plans', url: 'https://asilvainnovations.com/pricing-plans' }
                 ].map((item, i) => (
                   <li key={i}>
                     <a
