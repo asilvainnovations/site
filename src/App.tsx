@@ -1,19 +1,58 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-// Official logo URL with high-contrast container
+// Lucide React Icons
+import { 
+  Mail, 
+  Linkedin, 
+  Facebook,
+  Instagram,
+  ArrowRight, 
+  Phone, 
+  Globe 
+} from 'lucide-react';
+
+// --- Types ---
+type Category = 
+  | 'Systems Thinking'
+  | 'Risk Management'
+  | 'Strategic Leadership'
+  | 'Disaster Resilience'
+  | 'AI Innovation'
+  | 'Compliance';
+
+interface CategoryColors {
+  accent: string;
+  name: string;
+}
+
+const CATEGORY_COLORS: Record<Category, CategoryColors> = {
+  'Systems Thinking': { accent: '#3B82F6', name: 'blue' },
+  'Risk Management': { accent: '#EF4444', name: 'red' },
+  'Strategic Leadership': { accent: '#10B981', name: 'emerald' },
+  'Disaster Resilience': { accent: '#F59E0B', name: 'amber' },
+  'AI Innovation': { accent: '#8B5CF6', name: 'violet' },
+  'Compliance': { accent: '#06B6D4', name: 'cyan' }
+};
+
+const CATEGORIES: Category[] = [
+  'Systems Thinking',
+  'Risk Management',
+  'Strategic Leadership',
+  'Disaster Resilience',
+  'AI Innovation',
+  'Compliance'
+];
+
+// --- Official Assets URLs ---
 const OFFICIAL_LOGO_URL = "https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png";
-
-// Hero background image
 const HERO_BG_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg";
-
-// Service-specific images
 const DDRIVE_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/4750f689086d_379_1097.png";
 const STRAT_PLANNER_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/d6780c531792_34_1097.png";
 const RTL_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/d479ce1cc4b2_113_1097.png";
 const AI_SOLUTIONS_IMAGE_URL = "https://appimize.app/assets/apps/user_1097/images/055b612d128d_302_1097.png";
 
-// Intersection Observer Hook for scroll animations
+// --- Intersection Observer Hook for scroll animations ---
 const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -27,7 +66,6 @@ const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
     if (currentTarget) {
       observer.observe(currentTarget);
     }
-
     return () => {
       if (currentTarget) {
         observer.unobserve(currentTarget);
@@ -38,14 +76,18 @@ const useIntersectionObserver = (options: IntersectionObserverInit = {}) => {
   return [targetRef, isIntersecting] as const;
 };
 
-// Animated Counter Component
+// --- Animated Counter Component ---
 interface AnimatedCounterProps {
   end: number;
   duration?: number;
   suffix?: string;
 }
 
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000, suffix = '' }) => {
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ 
+  end, 
+  duration = 2000, 
+  suffix = '' 
+}) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const counterRef = useRef<HTMLSpanElement>(null);
@@ -64,7 +106,6 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000,
     if (currentRef) {
       observer.observe(currentRef);
     }
-
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
@@ -74,13 +115,12 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000,
 
   useEffect(() => {
     if (!isVisible) return;
-
+    
     let startTime: number;
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
       setCount(Math.floor(progress * end));
-
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
@@ -96,9 +136,10 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ end, duration = 2000,
   );
 };
 
-// Stats Section Component
+// --- Stats Section Component ---
 const StatsSection: React.FC = () => {
   const [ref, isVisible] = useIntersectionObserver();
+  
   const stats = [
     { value: 15, suffix: '+', label: 'Government Partners', icon: '🏛️' },
     { value: 3200, suffix: '+', label: 'Lives Protected', icon: '🛡️' },
@@ -136,7 +177,7 @@ const StatsSection: React.FC = () => {
   );
 };
 
-// Feature Highlight Component with animations
+// --- Feature Highlight Component ---
 interface FeatureHighlightProps {
   feature: {
     icon: string;
@@ -149,7 +190,7 @@ interface FeatureHighlightProps {
 
 const FeatureHighlight: React.FC<FeatureHighlightProps> = ({ feature, index }) => {
   const [ref, isVisible] = useIntersectionObserver();
-
+  
   return (
     <div
       ref={ref}
@@ -182,7 +223,7 @@ const FeatureHighlight: React.FC<FeatureHighlightProps> = ({ feature, index }) =
   );
 };
 
-// Service interface
+// --- Service Interface ---
 interface Service {
   id: string;
   title: string;
@@ -195,7 +236,7 @@ interface Service {
   imageAlt: string;
 }
 
-// Persona interface
+// --- Persona Interface ---
 interface Persona {
   target: string;
   desc: string;
@@ -204,7 +245,362 @@ interface Persona {
   color: string;
 }
 
-// Main App Component
+// --- Enhanced Footer Component ---
+interface FooterProps {
+  onCategorySelect?: (category: Category) => void;
+  onNewsletterOpen?: () => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ 
+  onCategorySelect, 
+  onNewsletterOpen 
+}) => {
+  const [email, setEmail] = useState('');
+
+  const handleQuickSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      if (onNewsletterOpen) {
+        onNewsletterOpen();
+      }
+    }
+  };
+
+  const currentYear = new Date().getFullYear();
+
+  // Utility function to clean URLs
+  const cleanUrl = (url: string): string => url.trim();
+
+  return (
+    <footer className="bg-[#010409] text-white">
+      {/* Newsletter Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-teal-500">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <h3 className="text-2xl font-bold mb-2">
+                Join 10,000+ Leaders Transforming Their Organizations
+              </h3>
+              <p className="text-white/80">
+                Get weekly insights on systems thinking, risk management, and strategic leadership.
+              </p>
+            </div>
+            <form onSubmit={handleQuickSubscribe} className="flex gap-2 w-full md:w-auto">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="flex-1 md:w-72 px-5 py-3 rounded-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+              />
+              <button
+                type="submit"
+                className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2"
+              >
+                Subscribe
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <img 
+                src={cleanUrl(OFFICIAL_LOGO_URL)} 
+                alt="ASilva Innovations" 
+                className="h-12 w-12 object-contain"
+              />
+              <div>
+                <h4 className="font-bold text-xl">ASilva Innovations</h4>
+                <p className="text-gray-400 text-sm">Transforming Systems, Empowering Resilience</p>
+              </div>
+            </div>
+            <p className="text-gray-400 mb-6 max-w-sm">
+              Building resilient communities through ethical AI and human-centered design since 2020.
+              Headquartered in Quezon City, Philippines.
+            </p>
+            
+            {/* Contact Info */}
+            <div className="space-y-3 text-gray-400">
+              <a href="mailto:info@asilvainnovations.com" className="flex items-center gap-3 hover:text-white transition-colors">
+                <Mail className="w-5 h-5" />
+                info@asilvainnovations.com
+              </a>
+              <a href="tel:+639178555134" className="flex items-center gap-3 hover:text-white transition-colors">
+                <Phone className="w-5 h-5" />
+                +63 (917) 855-5134
+              </a>
+              <a 
+                href={cleanUrl("https://asilvainnovations.com")} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-3 hover:text-white transition-colors"
+              >
+                <Globe className="w-5 h-5" />
+                asilvainnovations.com
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-4 mt-6">
+              <a 
+                href="https://linkedin.com/company/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://facebook.com/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://instagram.com/asilvainnovations" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Topics Column */}
+          <div>
+            <h5 className="font-semibold text-lg mb-4">Topics</h5>
+            <ul className="space-y-3">
+              {CATEGORIES.map((category) => {
+                const colors = CATEGORY_COLORS[category];
+                return (
+                  <li key={category}>
+                    <button
+                      onClick={() => onCategorySelect?.(category)}
+                      className="text-gray-400 hover:text-white transition-colors flex items-center gap-2 text-left"
+                    >
+                      <span 
+                        className="w-2 h-2 rounded-full"
+                        style={{ backgroundColor: colors.accent }}
+                      />
+                      {category}
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h5 className="font-semibold text-lg mb-4">Resources</h5>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/case-studies/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Case Studies
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/whitepapers/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Whitepapers
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/ddrive-m/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  DDRiVE-M
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/strat-planner-pro")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Strat Planner Pro
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/rtl/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Real-Time Leadership
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/smart-flood-detection/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Smart Flood Detection
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h5 className="font-semibold text-lg mb-4">Company</h5>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/about/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/solutions")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Our Solutions
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/products/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Our Products
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/pricing-plans")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Pricing Plans
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/contact/")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a 
+                  href={cleanUrl("https://asilvainnovations.com/partnerships")} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Partnerships
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-500 text-sm">
+            © {currentYear} ASilva Innovations. All rights reserved.
+          </p>
+          <div className="flex flex-wrap gap-6 text-sm">
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/privacy-policy/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </a>
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/terms/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              Terms of Service
+            </a>
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/cookie-policy/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              Cookie Policy
+            </a>
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/accessibility/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              Accessibility Policy
+            </a>
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/ai-ethics-and-policy-framework/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              AI Ethics Framework
+            </a>
+            <a 
+              href={cleanUrl("https://asilvainnovations.com/site-map/")} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              Sitemap
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+// --- Main App Component ---
 const App: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -215,10 +611,9 @@ const App: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
-
-    // Simulate initial load
+    
     const timer = setTimeout(() => setIsLoading(false), 1000);
-
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timer);
@@ -232,7 +627,6 @@ const App: React.FC = () => {
         setIsMenuOpen(false);
       }
     };
-
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, [isMenuOpen]);
@@ -246,13 +640,17 @@ const App: React.FC = () => {
     }
   }, [isMenuOpen]);
 
-  // Services data with images
   const services: Service[] = [
     {
       id: 'ddrive',
       title: 'DDRiVE-M Platform',
       description: 'Flagship Enterprise Risk Management system delivering real-time vulnerability mapping, compliance tracking, and predictive analytics for LGUs and NGOs.',
-      features: ['Multi-Hazard Detection and Multi-Modal Risk Assessment Tools', 'ISO 31000-Compliant Risk Management System with AI Services', 'UNDRR Resilience Scorecard Assessment Integration', 'Customizable AI-Plan Generators and Dashboards'],
+      features: [
+        'Multi-Hazard Detection and Multi-Modal Risk Assessment Tools',
+        'ISO 31000-Compliant Risk Management System with AI Services',
+        'UNDRR Resilience Scorecard Assessment Integration',
+        'Customizable AI-Plan Generators and Dashboards'
+      ],
       link: '#ddrive-m',
       gradient: 'from-blue-600 to-cyan-600',
       imageUrl: DDRIVE_IMAGE_URL,
@@ -262,7 +660,12 @@ const App: React.FC = () => {
       id: 'stratplanner',
       title: 'Strat Planner Pro',
       description: 'AI-powered strategic planning suite that transforms complex data into actionable roadmaps with automated analysis and performance tracking.',
-      features: ['Systems-Driven Context Analysis', 'AI-Supported Strategic Options Generation', 'Structured Strategy Mapping with Balanced Scorecard', 'Automated and Real-Time Updating of Monitoring, Evaluation, and Learning Dashboard'],
+      features: [
+        'Systems-Driven Context Analysis',
+        'AI-Supported Strategic Options Generation',
+        'Structured Strategy Mapping with Balanced Scorecard',
+        'Automated and Real-Time Updating of Monitoring, Evaluation, and Learning Dashboard'
+      ],
       link: '#strat-planner-pro/',
       gradient: 'from-amber-600 to-orange-600',
       imageUrl: STRAT_PLANNER_IMAGE_URL,
@@ -272,7 +675,12 @@ const App: React.FC = () => {
       id: 'rtl',
       title: 'Real-Time Leadership',
       description: 'Systems-based emergency and risk-reduction leadership framework with practical tools to navigate high-risk scenarios and projects.',
-      features: ['Tools on Mastery of Presence', 'Options Generations Toolkit', 'Validating Choices ', 'Cross-Agency Collaboration'],
+      features: [
+        'Tools on Mastery of Presence',
+        'Options Generations Toolkit',
+        'Validating Choices ',
+        'Cross-Agency Collaboration'
+      ],
       link: '#/rtl',
       gradient: 'from-emerald-600 to-teal-600',
       imageUrl: RTL_IMAGE_URL,
@@ -282,7 +690,12 @@ const App: React.FC = () => {
       id: 'ai-solutions',
       title: 'AI & Automation Suite',
       description: 'Specialized AI solutions for public sector challenges including flood prediction, damage assessment, and intelligent resource routing.',
-      features: ['SPARC - Smart Predictive AI Resilience Calculator', 'AI Chatbots - Context-aware assistants', 'Customized DRRM Integration - Disaster risk reduction', 'Custom AI-Powered Online Courses on DRR-CCA, and Real-Time Leadership'],
+      features: [
+        'SPARC - Smart Predictive AI Resilience Calculator',
+        'AI Chatbots - Context-aware assistants',
+        'Customized DRRM Integration - Disaster risk reduction',
+        'Custom AI-Powered Online Courses on DRR-CCA, and Real-Time Leadership'
+      ],
       link: '#ai-solutions',
       gradient: 'from-violet-600 to-purple-600',
       imageUrl: AI_SOLUTIONS_IMAGE_URL,
@@ -290,7 +703,6 @@ const App: React.FC = () => {
     }
   ];
 
-  // Target personas
   const personas: Persona[] = [
     {
       target: "Local Government Units",
@@ -315,7 +727,6 @@ const App: React.FC = () => {
     }
   ];
 
-  // Key features with animations
   const keyFeatures = [
     {
       icon: '🎯',
@@ -394,6 +805,7 @@ const App: React.FC = () => {
       </a>
 
       <div className="min-h-screen bg-[#020617] text-slate-100 font-sans selection:bg-blue-500/30">
+        
         {/* NAVIGATION */}
         <nav
           className={`fixed w-full z-50 transition-all duration-300 ${
@@ -409,11 +821,10 @@ const App: React.FC = () => {
               className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-lg p-1 -ml-1"
               aria-label="ASilva Innovations homepage"
             >
-              {/* CIRCULAR HIGH-CONTRAST LOGO */}
               <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 shadow-lg shadow-blue-500/40 group-hover:scale-110 transition-transform duration-300 border-3 border-white">
                 <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                   <img
-                    src="https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png"
+                    src={OFFICIAL_LOGO_URL}
                     alt="ASilva Innovations logo"
                     className="w-full h-full object-contain"
                     onError={(e) => {
@@ -521,13 +932,12 @@ const App: React.FC = () => {
                   </svg>
                 </button>
               </div>
-              
-              {/* Circular logo in mobile menu */}
+
               <div className="flex items-center gap-3 py-6 border-b border-white/10">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full flex items-center justify-center p-1.5 border-3 border-white shadow-lg shadow-blue-500/30">
                   <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
                     <img
-                      src="https://appimize.app/assets/apps/user_1097/images/2c7d825bf937_232_1097.png"
+                      src={OFFICIAL_LOGO_URL}
                       alt="ASilva Innovations logo"
                       className="w-full h-full object-contain"
                       onError={(e) => {
@@ -569,6 +979,7 @@ const App: React.FC = () => {
                   <span className="text-base" aria-hidden="true">↗</span>
                 </a>
               </nav>
+
               <a
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
@@ -576,6 +987,7 @@ const App: React.FC = () => {
               >
                 Get Started Today
               </a>
+
               <div className="mt-auto pt-8 border-t border-white/10 text-center text-sm text-slate-500 space-y-1">
                 <p>Building resilient communities</p>
                 <p>© {new Date().getFullYear()} ASilva Innovations</p>
@@ -584,16 +996,15 @@ const App: React.FC = () => {
           </>
         )}
 
-        {/* HERO SECTION - Full Width Background */}
+        {/* HERO SECTION */}
         <header
           id="main-content"
           className="relative pt-32 md:pt-48 pb-28 px-6 overflow-hidden min-h-[85vh] flex items-center"
           tabIndex={-1}
         >
-          {/* Full-width background image */}
           <div className="absolute inset-0 z-0">
             <img
-              src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
+              src={HERO_BG_IMAGE_URL}
               alt="Hero background"
               className="w-full h-full object-cover"
               loading="eager"
@@ -602,13 +1013,10 @@ const App: React.FC = () => {
                 target.style.display = 'none';
               }}
             />
-            {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#020617]/95 via-[#020617]/85 to-[#020617]/90"></div>
-            {/* Additional gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent"></div>
           </div>
 
-          {/* Animated accents */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl animate-float-delayed"></div>
@@ -620,16 +1028,19 @@ const App: React.FC = () => {
                 <div className="text-xl animate-bounce" aria-hidden="true">🏆</div>
                 <span>Trusted by 15+ LGUs Across Southeast Asia</span>
               </div>
+              
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
                 <span className="block text-white drop-shadow-lg">Technology That</span>
                 <span className="block bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 py-2 animate-gradient drop-shadow-2xl">
                   Builds Unbreakable Communities
                 </span>
               </h1>
+
               <p className="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 Enterprise-grade risk intelligence platforms purpose-built for Local Government Units, NGOs, and social enterprises operating in high-risk environments.
                 <span className="text-blue-300 font-semibold"> Transform uncertainty into strategic advantage.</span>
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
                 <a
                   href="#contact"
@@ -645,6 +1056,7 @@ const App: React.FC = () => {
                   View All Solutions
                 </a>
               </div>
+
               <div className="flex flex-wrap gap-4 pt-4 text-sm justify-center">
                 <div className="flex items-center gap-2 text-emerald-400 font-medium animate-fadeIn bg-emerald-950/30 px-4 py-2 rounded-full border border-emerald-500/30 backdrop-blur-sm">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
@@ -695,7 +1107,6 @@ const App: React.FC = () => {
                   aria-labelledby={`service-title-${service.id}`}
                   tabIndex={0}
                 >
-                  {/* Service Image */}
                   <div className="relative w-full aspect-[16/9] mb-6 rounded-xl overflow-hidden border border-white/10 bg-slate-800/50 group-hover:scale-105 transition-transform duration-500">
                     <img
                       src={service.imageUrl}
@@ -730,15 +1141,18 @@ const App: React.FC = () => {
                       <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} rounded-2xl blur-xl opacity-50 animate-pulse`}></div>
                     )}
                   </div>
+
                   <h3
                     id={`service-title-${service.id}`}
                     className="text-2xl font-bold mb-4 text-white group-hover:text-blue-300 transition-colors"
                   >
                     {service.title}
                   </h3>
+
                   <p className="text-slate-300 mb-6 leading-relaxed flex-grow">
                     {service.description}
                   </p>
+
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feat, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-slate-200">
@@ -747,6 +1161,7 @@ const App: React.FC = () => {
                       </li>
                     ))}
                   </ul>
+
                   <a
                     href={service.link}
                     target="_blank"
@@ -776,6 +1191,7 @@ const App: React.FC = () => {
                 ))}
               </div>
             </div>
+
             <div className="mt-16 text-center animate-fadeInUp">
               <a
                 href="https://asilvainnovations.com/solutions"
@@ -794,7 +1210,6 @@ const App: React.FC = () => {
         <section id="impact" className="py-24 px-6 bg-gradient-to-b from-slate-900 via-[#030a23] to-slate-900" aria-labelledby="impact-heading">
           <div className="max-w-7xl mx-auto">
             <div className="bg-gradient-to-br from-blue-900/70 to-indigo-900/80 rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden relative shadow-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-500">
-              {/* Background Pattern */}
               <div className="absolute top-0 right-0 w-1/2 h-full opacity-5" aria-hidden="true">
                 <div className="w-full h-full" style={{
                   backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
@@ -817,6 +1232,7 @@ const App: React.FC = () => {
                       <span className="text-amber-300 font-bold"> communities empowered</span>—not just software deployed.
                     </p>
                   </div>
+
                   <div className="grid md:grid-cols-2 gap-6">
                     {personas.map((p, i) => (
                       <div
@@ -844,9 +1260,7 @@ const App: React.FC = () => {
 
                 {/* Testimonials Column */}
                 <div className="space-y-6 animate-fadeInRight">
-                  {/* Testimonial 1 - Arnold Pica */}
                   <div className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-all duration-500 hover:scale-105 relative overflow-hidden">
-                    {/* Strat Planner Pro Image as background */}
                     <div className="absolute inset-0 opacity-10">
                       <img
                         src={STRAT_PLANNER_IMAGE_URL}
@@ -855,7 +1269,6 @@ const App: React.FC = () => {
                         loading="lazy"
                       />
                     </div>
-                    
                     <div className="relative z-10">
                       <div className="flex justify-center gap-1 mb-6" aria-hidden="true">
                         {[...Array(5)].map((_, i) => (
@@ -871,7 +1284,7 @@ const App: React.FC = () => {
                       <blockquote className="relative">
                         <div className="absolute -top-4 -left-2 text-6xl text-blue-500/20 font-serif" aria-hidden="true">"</div>
                         <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-blue-500 pl-6 py-2 relative z-10">
-ASilva Innovations' approach in updating our Risk-informed Comprehensive Development Plan has truly been a game-changer giving us a clear and practical framework that integrates disaster risk reduction into our local development priorities. We are very satisfied with how the process and with the empowering tools.
+                          ASilva Innovations' approach in updating our Risk-informed Comprehensive Development Plan has truly been a game-changer giving us a clear and practical framework that integrates disaster risk reduction into our local development priorities.
                         </p>
                         <div className="absolute -bottom-4 -right-2 text-6xl text-blue-500/20 font-serif rotate-180" aria-hidden="true">"</div>
                       </blockquote>
@@ -892,9 +1305,7 @@ ASilva Innovations' approach in updating our Risk-informed Comprehensive Develop
                     </div>
                   </div>
 
-                  {/* Testimonial 2 - Rhadzni Taalim */}
                   <div className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:scale-105 relative overflow-hidden">
-                    {/* AI Solutions Image as background */}
                     <div className="absolute inset-0 opacity-10">
                       <img
                         src={AI_SOLUTIONS_IMAGE_URL}
@@ -903,7 +1314,6 @@ ASilva Innovations' approach in updating our Risk-informed Comprehensive Develop
                         loading="lazy"
                       />
                     </div>
-                    
                     <div className="relative z-10">
                       <div className="flex justify-center gap-1 mb-6" aria-hidden="true">
                         {[...Array(5)].map((_, i) => (
@@ -919,7 +1329,7 @@ ASilva Innovations' approach in updating our Risk-informed Comprehensive Develop
                       <blockquote className="relative">
                         <div className="absolute -top-4 -left-2 text-6xl text-emerald-500/20 font-serif" aria-hidden="true">"</div>
                         <p className="text-lg md:text-xl italic font-medium text-center text-blue-100 border-l-4 border-emerald-500 pl-6 py-2 relative z-10">
-ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) has been transformative for Bangsamoro communities and civil society organizations. Their approach not only strengthened our capacity to anticipate and manage risks but also empowered local stakeholders to build resilience from the ground up.
+                          ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) has been transformative for Bangsamoro communities and civil society organizations.
                         </p>
                         <div className="absolute -bottom-4 -right-2 text-6xl text-emerald-500/20 font-serif rotate-180" aria-hidden="true">"</div>
                       </blockquote>
@@ -961,11 +1371,10 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                   <span className="text-emerald-300 font-semibold"> Let's build your custom solution.</span>
                 </p>
               </div>
-              
-              {/* RTL Image Showcase */}
+
               <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-slate-900/50 hover:scale-105 transition-transform duration-500 group">
                 <img
-                  src="https://appimize.app/assets/apps/user_1097/images/8df0614c4061_739_1097.jpg"
+                  src={HERO_BG_IMAGE_URL}
                   alt="Real-Time Lea Platform"
                   className="w-full h-64 object-cover"
                   loading="lazy"
@@ -1006,6 +1415,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                   </div>
                 ))}
               </div>
+
               <div className="pt-6 border-t border-white/10 mt-6">
                 <h3 className="font-bold text-lg mb-4 flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-emerald-600/20 text-emerald-400 flex items-center justify-center" aria-hidden="true">✓</div>
@@ -1027,7 +1437,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
               </div>
             </div>
 
-            {/* Enhanced Contact Form */}
+            {/* Contact Form */}
             <div className="bg-slate-900 border border-white/10 rounded-2xl p-8 shadow-2xl hover:border-blue-500/30 transition-all duration-500 animate-fadeInRight">
               <form
                 className="space-y-6"
@@ -1056,6 +1466,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                     placeholder="Maria Santos"
                   />
                 </div>
+
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
                     Email Address
@@ -1071,6 +1482,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                     placeholder="maria.santos@lgu-salcedo.gov.ph"
                   />
                 </div>
+
                 <div className="space-y-2">
                   <label htmlFor="organization" className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
                     Organization
@@ -1086,6 +1498,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                     placeholder="LGU Salcedo, Eastern Samar"
                   />
                 </div>
+
                 <div className="space-y-2">
                   <label htmlFor="inquiry" className="text-sm font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
                     Inquiry Type
@@ -1106,6 +1519,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                     <option value="partnership">Partnership Inquiry</option>
                   </select>
                 </div>
+
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-bold uppercase tracking-wider text-slate-400">
                     Message (Optional)
@@ -1118,6 +1532,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                     placeholder="Tell us about your organization's needs..."
                   ></textarea>
                 </div>
+
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-500 hover:to-indigo-600 text-white font-bold uppercase tracking-wider py-5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:scale-105 active:scale-95 mt-2 flex items-center justify-center gap-3 group"
@@ -1126,6 +1541,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
                   <span>Request Consultation</span>
                   <span className="text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
                 </button>
+
                 <p className="text-xs text-slate-500 text-center mt-2 flex items-center justify-center gap-2">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -1137,146 +1553,12 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
           </div>
         </section>
 
-        {/* FOOTER */}
-        <footer className="py-16 px-6 border-t border-white/5 bg-[#010409]" aria-label="Site footer">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                {/* Circular logo in footer */}
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-full p-1.5 shadow-lg shadow-blue-500/30 border-3 border-white">
-                  <div className="w-full h-full bg-white rounded-full flex items-center justify-center p-1.5">
-                    <img
-                      src={logoUrl}
-                      alt="ASilva Innovations logo"
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        if (target.parentElement) {
-                          target.parentElement.innerHTML = '<div class="text-blue-600 font-bold text-lg">A</div>';
-                        }
-                      }}
-                    />
-                  </div>
-                </div>
-                <span className="font-bold text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-                  ASilva Innovations
-                </span>
-              </div>
-              <p className="text-slate-400 leading-relaxed max-w-xs">
-                Building resilient communities through ethical AI and human-centered design since 2020. Headquartered in Quezon City, Philippines.
-              </p>
-              <div className="flex gap-4 pt-2">
-                {[
-                  { icon: 'in', label: 'LinkedIn', url: 'https://linkedin.asilva-innovations.com' },
-                  { icon: 'f', label: 'Facebook', url: 'https://facebook.asilvainnovations.com' },
-                  { icon: 'ig', label: 'Instagram', url: 'https://instagram.asilvainnovations.com' }
-                ].map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-slate-800/70 flex items-center justify-center hover:bg-blue-600/20 hover:text-blue-400 transition-all duration-300 text-sm font-bold hover:scale-110"
-                    aria-label={`${social.label} - opens in new tab`}
-                  >
-                    <span>{social.icon}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-white">Solutions</h3>
-              <ul className="space-y-3">
-                {services.map((service) => (
-                  <li key={service.id}>
-                    <a
-                      href={service.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 group hover:translate-x-1"
-                    >
-                      <span className="text-sm" aria-hidden="true">→</span>
-                      <span>{service.title}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-white">Company</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'About Us', url: 'https://asilvainnovations.com/about' },
-                  { name: 'Resilience Insights', url: 'https://asilvainnovations.com/blog' },
-                  { name: 'Partnerships', url: 'https://asilvainnovations.com/partnerships' },
-                  { name: 'Contact Us', url: 'https://asilvainnovations.com/contact' }
-      { name: 'Pricing Plans', url: 'https://asilvainnovations.com/pricing-plans' }
-                ].map((item, i) => (
-                  <li key={i}>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 group hover:translate-x-1"
-                    >
-                      <span className="text-sm" aria-hidden="true">→</span>
-                      <span>{item.name}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="space-y-6">
-              <h3 className="text-lg font-bold uppercase tracking-wider text-white">Resources</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'Blog', url: 'https://asilvainnovations.com/blog' },
-                  { name: 'DRRM Compliance Guide', url: 'https://asilvainnovations.com/resources/drrm-guide' },
-                  { name: 'Integrated Risk Management', url: 'https://asilvainnovations.com/ddrive-m' },
-                  { name: 'Learning Opportunities', url: 'https://asilvainnovations.com/rtl' }
-                ].map((item, i) => (
-                  <li key={i}>
-                    <a
-                      href={item.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-400 hover:text-blue-300 transition-all duration-300 flex items-center gap-2 group hover:translate-x-1"
-                    >
-                      <span className="text-sm" aria-hidden="true">→</span>
-                      <span>{item.name}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <p>© {new Date().getFullYear()} ASilva Innovations. All rights reserved.</p>
-            <div className="flex flex-wrap justify-center gap-6">
-              {[
-                { name: 'Privacy Policy', url: 'https://asilvainnovations.com/privacy-policy' },
-                { name: 'Terms of Service', url: 'https://asilvainnovations.com/terms' },
-                { name: 'Accessibility', url: 'https://asilvainnovations.com/accessibility' },
-                { name: 'Sitemap', url: 'https://asilvainnovations.com/sitemap.xml' }
-              ].map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-slate-300 transition-colors hover:underline"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          </div>
-        </footer>
+        {/* FOOTER - Using Imported Enhanced Component */}
+        <Footer />
+
       </div>
 
-      {/* Add custom CSS for animations */}
+      {/* Custom CSS Animations */}
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
@@ -1355,7 +1637,7 @@ ASilva Innovations' customized Integrated Risk and Resilience Management (IRRM) 
           opacity: 0 !important;
         }
         
-        /* Cover bottom-right corner with matching background */
+        /* Cover bottom-right corner */
         body::after {
           content: '';
           position: fixed;
