@@ -1199,7 +1199,7 @@ const App: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-300 font-bold hover:text-blue-200 transition-all duration-300 text-lg group hover:scale-105"
               >
-                <span>See Full Solution Portfolio</span>
+                <span>See Full Solutions Portfolio</span>
                 <span className="text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">↗</span>
               </a>
             </div>
