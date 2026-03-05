@@ -969,7 +969,7 @@ const App: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="https://asilvainnovations.com/blog"
+                  href="https://asilvainnovations.com/blog-insights/"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
