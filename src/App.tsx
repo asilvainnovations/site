@@ -487,7 +487,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/solutions")} 
+                  href={cleanUrl("https://5ep7ajc7u6cpc.ok.kimi.link/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -497,17 +497,17 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/products/")} 
+                  href={cleanUrl("")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Our Products
+                  Resources
                 </a>
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/pricing-plans")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/pricing.html/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -861,7 +861,7 @@ const App: React.FC = () => {
                 </a>
               ))}
               <a
-                href="#blog"
+                href="https://asilvainnovations.github.io/website/blog.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-300 hover:text-blue-300 transition-colors py-2 px-1 flex items-center gap-1"
@@ -969,7 +969,7 @@ const App: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="https://asilvainnovations.com/blog-insights/"
+                  href="https://asilvainnovations.github.io/website/blog.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
