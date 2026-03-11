@@ -323,8 +323,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
             <p className="text-gray-400 mb-6 max-w-sm">
-              Building resilient communities through ethical AI and human-centered design since 2020.
-              Headquartered in Quezon City, Philippines.
+              Building resilient communities through ethical AI and human-centered tech designs. Headquartered in Alabang, Muntinlupa City, Philippines.
             </p>
             
             {/* Contact Info */}
@@ -351,7 +350,7 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Social Links */}
             <div className="flex gap-4 mt-6">
               <a 
-                href="https://linkedin.com/company/asilvainnovations" 
+                href="https://linkedin.asilvainnovations.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
@@ -360,7 +359,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="https://facebook.com/asilvainnovations" 
+                href="https://facebook.asilvainnovations.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
@@ -369,7 +368,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <Facebook className="w-5 h-5" />
               </a>
               <a 
-                href="https://instagram.com/asilvainnovations" 
+                href="https://instagram.asilvainnovations.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition-colors"
