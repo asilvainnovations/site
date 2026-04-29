@@ -429,7 +429,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/ddrive-m")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/ddrive-m/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -439,7 +439,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/strat-planner-pro")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/strat-planner-pwa/public/index.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -526,7 +526,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/partnerships")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/partnerships.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -1213,11 +1213,11 @@ const App: React.FC = () => {
                 id="partners-heading"
                 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300"
               >
-                Trusted By Leading Organizations
+                Trusted by Organizations
               </h2>
               <div className="h-1.5 w-32 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 mx-auto rounded-full animate-pulse"></div>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
-                Partnering with government agencies, NGOs, and development organizations across Southeast Asia
+                Partnering with government agencies, NGOs, and development organizations.
               </p>
             </div>
 
@@ -1235,8 +1235,10 @@ const App: React.FC = () => {
                 { name: 'LGU of Balatan, Camarines Sur', url: 'https://tse4.mm.bing.net/th/id/OIP.UhC-TEOPTtR1Ts0G3MSijAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
                 { name: 'LGU of Ormoc City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/Ormoc.png' },
                 { name: 'LGU of Salcedo, Eastern Samar', url: 'https://images.seeklogo.com/logo-png/42/1/salcedo-eastern-samar-logo-png_seeklogo-425888.png' },
-                { name: 'Kidapawan City', url: 'https://www.facebook.com/photo.php?fbid=433397992135936&set=a.372248168250919&type=3&from_lookaside=1' },
-                { name: 'General Trias City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/General%20Trias.png' }
+                { name: 'Kidapawan City', url: 'https://files01.pna.gov.ph/ograph/2018/10/28/kidapawan-logo.jpg' },
+                { name: 'General Trias City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/General%20Trias.png' },
+      { name: 'Talkshop', url: '[https://talkshop.ph/blog/wp-content/uploads/2014/03/talkshop-logo.jpg' },
+      { name: 'Moropreneur', url: '[https://www.britishcouncil.ph/sites/default/files/moropreneur-logo.png' },
               ].map((partner, index) => (
                 <div
                   key={index}
