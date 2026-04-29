@@ -409,7 +409,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-3">
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/case-studies")} 
+                  href={cleanUrl("https://asilvainnovations.com/case-studies/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -419,7 +419,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/white-papers/")} 
+                  href={cleanUrl("https://asilvainnovations.com/whitepapers/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -429,7 +429,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/ddrive-m/")} 
+                  href={cleanUrl("https://asilvainnovations.com/ddrive-m/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -439,7 +439,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/strat-planner-pwa/public/index.html")} 
+                  href={cleanUrl("https://asilvainnovations.com/strat-planner-pro")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -476,7 +476,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-3">
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/about")} 
+                  href={cleanUrl("https://asilvainnovations.com/about/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -486,7 +486,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/solutions.html")} 
+                  href={cleanUrl("https://5ep7ajc7u6cpc.ok.kimi.link/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -496,17 +496,17 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/about-us.html")} 
+                  href={cleanUrl("")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  About Us
+                  Resources
                 </a>
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/pricing.html")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/pricing.html/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -516,7 +516,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/contact.html")} 
+                  href={cleanUrl("https://asilvainnovations.com/contact/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -526,7 +526,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/partnerships.html")} 
+                  href={cleanUrl("https://asilvainnovations.com/partnerships")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -545,7 +545,7 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
           <div className="flex flex-wrap gap-6 text-sm">
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/privacy-policy.html")} 
+              href={cleanUrl("https://asilvainnovations.com/privacy-policy/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -553,7 +553,7 @@ export const Footer: React.FC<FooterProps> = ({
               Privacy Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/terms.html")} 
+              href={cleanUrl("https://asilvainnovations.com/terms/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -561,7 +561,7 @@ export const Footer: React.FC<FooterProps> = ({
               Terms of Service
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/cookie-policy.html")} 
+              href={cleanUrl("https://asilvainnovations.com/cookie-policy/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -569,7 +569,7 @@ export const Footer: React.FC<FooterProps> = ({
               Cookie Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/accessibility-policy.html")} 
+              href={cleanUrl("https://asilvainnovations.com/accessibility/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -577,7 +577,7 @@ export const Footer: React.FC<FooterProps> = ({
               Accessibility Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/ai-ethics.html")} 
+              href={cleanUrl("https://asilvainnovations.com/ai-ethics-and-policy-framework/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -585,7 +585,7 @@ export const Footer: React.FC<FooterProps> = ({
               AI Ethics Framework
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.github.io/website/sitemap.xml")} 
+              href={cleanUrl("https://asilvainnovations.com/site-map/")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -650,7 +650,7 @@ const App: React.FC = () => {
         'UNDRR Resilience Scorecard Assessment Integration',
         'Customizable AI-Plan Generators and Dashboards'
       ],
-      link: 'https://asilvainnovations.github.io/ddrive-m/',
+      link: '#ddrive-m',
       gradient: 'from-blue-600 to-cyan-600',
       imageUrl: DDRIVE_IMAGE_URL,
       imageAlt: 'DDRiVE-M Platform Dashboard Interface'
@@ -665,7 +665,7 @@ const App: React.FC = () => {
         'Structured Strategy Mapping with Balanced Scorecard',
         'Automated and Real-Time Updating of Monitoring, Evaluation, and Learning Dashboard'
       ],
-      link: 'https://asilvainnovations.github.io/strat-planner-pwa/public/index.html',
+      link: '#strat-planner-pro/',
       gradient: 'from-amber-600 to-orange-600',
       imageUrl: STRAT_PLANNER_IMAGE_URL,
       imageAlt: 'Strategic Planner Pro Interface'
@@ -680,7 +680,7 @@ const App: React.FC = () => {
         'Validating Choices ',
         'Cross-Agency Collaboration'
       ],
-      link: 'https://asilvainnovations.github.io/website/rtl.html',
+      link: '#/rtl',
       gradient: 'from-emerald-600 to-teal-600',
       imageUrl: RTL_IMAGE_URL,
       imageAlt: 'Real-Time Leadership Banner'
@@ -695,7 +695,7 @@ const App: React.FC = () => {
         'Customized DRRM Integration - Disaster risk reduction',
         'Custom AI-Powered Online Courses on DRR-CCA, and Real-Time Leadership'
       ],
-      link: 'https://asilvainnovations.github.io/website/ai-solutions.html',
+      link: '#ai-solutions',
       gradient: 'from-violet-600 to-purple-600',
       imageUrl: AI_SOLUTIONS_IMAGE_URL,
       imageAlt: 'AI Solutions Platform'
@@ -849,7 +849,7 @@ const App: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {['Solutions', 'Partners', 'Impact', 'Contact'].map((item) => (
+              {['Services', 'Impact', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -860,7 +860,7 @@ const App: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://blog-leadership-analytics.deploypad.app/"
+                href="https://asilvainnovations.github.io/website/blog.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-300 hover:text-blue-300 transition-colors py-2 px-1 flex items-center gap-1"
@@ -956,7 +956,7 @@ const App: React.FC = () => {
               </div>
 
               <nav className="flex flex-col space-y-6 text-xl font-bold mt-8">
-                {['Solutions', 'Partners', 'Impact', 'Contact'].map((item, index) => (
+                {['Services', 'Impact', 'Contact'].map((item, index) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -968,7 +968,7 @@ const App: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="https://blog-leadership-analytics.deploypad.app/"
+                  href="https://asilvainnovations.github.io/website/blog.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
@@ -1049,7 +1049,7 @@ const App: React.FC = () => {
                   <span className="text-xl group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">→</span>
                 </a>
                 <a
-                  href="https://asilvainnovations.github.io/website/solutions.html"
+                  href="#services"
                   className="bg-slate-900/90 hover:bg-slate-800/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20 backdrop-blur-sm hover:border-blue-500/50 text-center hover:scale-105 active:scale-95"
                 >
                   View All Solutions
@@ -1193,7 +1193,7 @@ const App: React.FC = () => {
 
             <div className="mt-16 text-center animate-fadeInUp">
               <a
-                href="https://asilvainnovations.github.io/website/solutions.html"
+                href="https://asilvainnovations.com/solutions"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-300 font-bold hover:text-blue-200 transition-all duration-300 text-lg group hover:scale-105"
@@ -1201,69 +1201,6 @@ const App: React.FC = () => {
                 <span>See Full Solutions Portfolio</span>
                 <span className="text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">↗</span>
               </a>
-            </div>
-          </div>
-        </section>
-
-        {/* PARTNERS SECTION */}
-        <section id="partners" className="py-24 px-6 bg-gradient-to-b from-[#020617] to-slate-900" aria-labelledby="partners-heading">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20 space-y-6 animate-fadeInUp">
-              <h2
-                id="partners-heading"
-                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300"
-              >
-                Trusted by Organizations
-              </h2>
-              <div className="h-1.5 w-32 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 mx-auto rounded-full animate-pulse"></div>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
-                Partnering with government agencies, NGOs, and development organizations.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
-              {[
-                { name: 'Bureau of Investments - MTIT', url: 'https://tse2.mm.bing.net/th/id/OIP.Y7AB0SsInVZU9_jcu9dyCgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
-                { name: 'German Red Cross', url: 'https://c8.alamy.com/comp/CR6979/logo-of-the-deutsches-rotes-kreuz-or-german-red-cross-CR6979.jpg' },
-                { name: 'Philippine Red Cross', url: 'https://www.clipartbest.com/cliparts/acq/roj/acqrojjcM.jpeg' },
-                { name: 'World Skills Philippines', url: 'https://tse2.mm.bing.net/th/id/OIP.cZccvDq_NHeIF2Af_t3woAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
-                { name: 'TESDA', url: 'https://depedph.com/wp-content/uploads/2024/01/tesda-logo.png' },
-                { name: 'Cognitio+', url: 'https://yt3.googleusercontent.com/KtSgSKANFe_H_GizfoaqtGY4BQ5u5WtmXbkugc6R-CB5Ful8HEPCoJzPl2NJ8aN0iC8Y6skmUA=s900-c-k-c0x00ffffff-no-rj' },
-                { name: 'Development Academy of Bangsamoro', url: 'https://tse3.mm.bing.net/th/id/OIP.C1MNq3OySg0J27pdcMiUYgHaHa?r=0&pid=ImgDet&w=188&h=188&c=7&dpr=2&o=7&rm=3' },
-                { name: 'Bangsamoro Development Agency', url: 'https://th.bing.com/th/id/OIP.GAgtQBerCyVHmmLliGy5_wAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
-                { name: 'The Asia Foundation', url: 'https://www.womensfundingnetwork.org/wp-content/uploads/1970/01/The-Asia-Foundation.png' },
-                { name: 'LGU of Balatan, Camarines Sur', url: 'https://tse4.mm.bing.net/th/id/OIP.UhC-TEOPTtR1Ts0G3MSijAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
-                { name: 'LGU of Ormoc City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/Ormoc.png' },
-                { name: 'LGU of Salcedo, Eastern Samar', url: 'https://images.seeklogo.com/logo-png/42/1/salcedo-eastern-samar-logo-png_seeklogo-425888.png' },
-                { name: 'Kidapawan City', url: 'https://mindanao.politiko.com.ph/wp-content/uploads/2023/07/kidapawan-holiday.jpg' },
-                { name: 'General Trias City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/General%20Trias.png' },
-                { name: 'Talkshop', url: 'https://talkshop.ph/blog/wp-content/uploads/2014/03/talkshop-logo.jpg' },
-                { name: 'Moropreneur', url: 'https://www.britishcouncil.ph/sites/default/files/moropreneur-logo.png' }
-              ].map((partner, index) => (
-                <div
-                  key={index}
-                  className="group flex items-center justify-center animate-fadeInUp"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10 hover:border-blue-500/40 p-4 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 group hover:-translate-y-2">
-                    <img
-                      src={partner.url}
-                      alt={partner.name}
-                      className="w-full h-full object-contain rounded-full p-3 bg-white/5"
-                      loading="lazy"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.parentElement!.innerHTML = `
-                          <div class="flex items-center justify-center w-full h-full text-center p-4">
-                            <div class="text-xs font-bold text-slate-400 leading-tight">${partner.name}</div>
-                          </div>
-                        `;
-                      }}
-                    />
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/0 to-indigo-700/0 group-hover:from-blue-600/10 group-hover:to-indigo-700/10 transition-all duration-300"></div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </section>
