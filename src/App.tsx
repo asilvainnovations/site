@@ -849,7 +849,7 @@ const App: React.FC = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {['Services', 'Impact', 'Contact'].map((item) => (
+              {['Solutions', 'Partners', 'Impact', 'Contact'].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -956,7 +956,7 @@ const App: React.FC = () => {
               </div>
 
               <nav className="flex flex-col space-y-6 text-xl font-bold mt-8">
-                {['Services', 'Impact', 'Contact'].map((item, index) => (
+                {['Solutions', 'Partners', 'Impact', 'Contact'].map((item, index) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -1201,6 +1201,67 @@ const App: React.FC = () => {
                 <span>See Full Solutions Portfolio</span>
                 <span className="text-xl group-hover:translate-x-1 transition-transform" aria-hidden="true">↗</span>
               </a>
+            </div>
+          </div>
+        </section>
+
+        {/* PARTNERS SECTION */}
+        <section id="partners" className="py-24 px-6 bg-gradient-to-b from-[#020617] to-slate-900" aria-labelledby="partners-heading">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20 space-y-6 animate-fadeInUp">
+              <h2
+                id="partners-heading"
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300"
+              >
+                Trusted By Leading Organizations
+              </h2>
+              <div className="h-1.5 w-32 bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-500 mx-auto rounded-full animate-pulse"></div>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto font-medium leading-relaxed">
+                Partnering with government agencies, NGOs, and development organizations across Southeast Asia
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
+              {[
+                { name: 'Bureau of Investments - MTIT', url: 'https://tse2.mm.bing.net/th/id/OIP.Y7AB0SsInVZU9_jcu9dyCgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
+                { name: 'German Red Cross', url: 'https://c8.alamy.com/comp/CR6979/logo-of-the-deutsches-rotes-kreuz-or-german-red-cross-CR6979.jpg' },
+                { name: 'Philippine Red Cross', url: 'https://www.clipartbest.com/cliparts/acq/roj/acqrojjcM.jpeg' },
+                { name: 'World Skills Philippines', url: 'https://tse2.mm.bing.net/th/id/OIP.cZccvDq_NHeIF2Af_t3woAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
+                { name: 'TESDA', url: 'https://depedph.com/wp-content/uploads/2024/01/tesda-logo.png' },
+                { name: 'Cognitio+', url: 'https://yt3.googleusercontent.com/KtSgSKANFe_H_GizfoaqtGY4BQ5u5WtmXbkugc6R-CB5Ful8HEPCoJzPl2NJ8aN0iC8Y6skmUA=s900-c-k-c0x00ffffff-no-rj' },
+                { name: 'Development Academy of Bangsamoro', url: 'https://tse3.mm.bing.net/th/id/OIP.C1MNq3OySg0J27pdcMiUYgHaHa?r=0&pid=ImgDet&w=188&h=188&c=7&dpr=2&o=7&rm=3' },
+                { name: 'Bangsamoro Development Agency', url: 'https://th.bing.com/th/id/OIP.GAgtQBerCyVHmmLliGy5_wAAAA?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3' },
+                { name: 'The Asia Foundation', url: 'https://www.womensfundingnetwork.org/wp-content/uploads/1970/01/The-Asia-Foundation.png' },
+                { name: 'LGU of Balatan, Camarines Sur', url: 'https://tse4.mm.bing.net/th/id/OIP.UhC-TEOPTtR1Ts0G3MSijAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
+                { name: 'LGU of Ormoc City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/Ormoc.png' },
+                { name: 'LGU of Salcedo, Eastern Samar', url: 'https://images.seeklogo.com/logo-png/42/1/salcedo-eastern-samar-logo-png_seeklogo-425888.png' },
+                { name: 'Kidapawan City', url: 'https://www.facebook.com/photo.php?fbid=433397992135936&set=a.372248168250919&type=3&from_lookaside=1' },
+                { name: 'General Trias City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/General%20Trias.png' }
+              ].map((partner, index) => (
+                <div
+                  key={index}
+                  className="group flex items-center justify-center animate-fadeInUp"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10 hover:border-blue-500/40 p-4 flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-blue-500/20 group hover:-translate-y-2">
+                    <img
+                      src={partner.url}
+                      alt={partner.name}
+                      className="w-full h-full object-contain rounded-full p-3 bg-white/5"
+                      loading="lazy"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.parentElement!.innerHTML = `
+                          <div class="flex items-center justify-center w-full h-full text-center p-4">
+                            <div class="text-xs font-bold text-slate-400 leading-tight">${partner.name}</div>
+                          </div>
+                        `;
+                      }}
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/0 to-indigo-700/0 group-hover:from-blue-600/10 group-hover:to-indigo-700/10 transition-all duration-300"></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
