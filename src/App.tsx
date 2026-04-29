@@ -496,12 +496,12 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/about-us.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Resources
+                  About Us
                 </a>
               </li>
               <li>
@@ -516,7 +516,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/contact/")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/contact.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -561,7 +561,7 @@ export const Footer: React.FC<FooterProps> = ({
               Terms of Service
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/cookie-policy/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/cookie-policy.html")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
