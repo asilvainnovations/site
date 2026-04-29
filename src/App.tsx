@@ -1235,10 +1235,10 @@ const App: React.FC = () => {
                 { name: 'LGU of Balatan, Camarines Sur', url: 'https://tse4.mm.bing.net/th/id/OIP.UhC-TEOPTtR1Ts0G3MSijAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3' },
                 { name: 'LGU of Ormoc City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/Ormoc.png' },
                 { name: 'LGU of Salcedo, Eastern Samar', url: 'https://images.seeklogo.com/logo-png/42/1/salcedo-eastern-samar-logo-png_seeklogo-425888.png' },
-                { name: 'Kidapawan City', url: 'https://files01.pna.gov.ph/ograph/2018/10/28/kidapawan-logo.jpg' },
+                { name: 'Kidapawan City', url: 'https://mindanao.politiko.com.ph/wp-content/uploads/2023/07/kidapawan-holiday.jpg' },
                 { name: 'General Trias City', url: 'https://cmci.dti.gov.ph/img/seals/lgu/General%20Trias.png' },
-      { name: 'Talkshop', url: '[https://talkshop.ph/blog/wp-content/uploads/2014/03/talkshop-logo.jpg' },
-      { name: 'Moropreneur', url: '[https://www.britishcouncil.ph/sites/default/files/moropreneur-logo.png' },
+                { name: 'Talkshop', url: 'https://talkshop.ph/blog/wp-content/uploads/2014/03/talkshop-logo.jpg' },
+                { name: 'Moropreneur', url: 'https://www.britishcouncil.ph/sites/default/files/moropreneur-logo.png' }
               ].map((partner, index) => (
                 <div
                   key={index}
