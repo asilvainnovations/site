@@ -409,7 +409,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-3">
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/case-studies/")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/case-studies")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -419,7 +419,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/whitepapers/")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/white-papers/")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -429,7 +429,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/ddrive-m/")} 
+                  href={cleanUrl("https://asilvainnovations.com/ddrive-m")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -476,7 +476,7 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-3">
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.com/about/")} 
+                  href={cleanUrl("https://asilvainnovations.com/about")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -486,7 +486,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://5ep7ajc7u6cpc.ok.kimi.link/")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/solutions.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -506,7 +506,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a 
-                  href={cleanUrl("https://asilvainnovations.github.io/website/pricing.html/")} 
+                  href={cleanUrl("https://asilvainnovations.github.io/website/pricing.html")} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -545,7 +545,7 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
           <div className="flex flex-wrap gap-6 text-sm">
             <a 
-              href={cleanUrl("https://asilvainnovations.com/privacy-policy/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/privacy-policy.html")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -553,7 +553,7 @@ export const Footer: React.FC<FooterProps> = ({
               Privacy Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/terms/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/terms.html")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -569,7 +569,7 @@ export const Footer: React.FC<FooterProps> = ({
               Cookie Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/accessibility/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/accessibility-policy.html")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -577,7 +577,7 @@ export const Footer: React.FC<FooterProps> = ({
               Accessibility Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/ai-ethics-and-policy-framework/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/ai-ethics.html")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -585,7 +585,7 @@ export const Footer: React.FC<FooterProps> = ({
               AI Ethics Framework
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/site-map/")} 
+              href={cleanUrl("https://asilvainnovations.github.io/website/sitemap.xml")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -650,7 +650,7 @@ const App: React.FC = () => {
         'UNDRR Resilience Scorecard Assessment Integration',
         'Customizable AI-Plan Generators and Dashboards'
       ],
-      link: '#ddrive-m',
+      link: 'https://asilvainnovations.github.io/ddrive-m/',
       gradient: 'from-blue-600 to-cyan-600',
       imageUrl: DDRIVE_IMAGE_URL,
       imageAlt: 'DDRiVE-M Platform Dashboard Interface'
@@ -665,7 +665,7 @@ const App: React.FC = () => {
         'Structured Strategy Mapping with Balanced Scorecard',
         'Automated and Real-Time Updating of Monitoring, Evaluation, and Learning Dashboard'
       ],
-      link: '#strat-planner-pro/',
+      link: 'https://asilvainnovations.github.io/strat-planner-pwa/public/index.html',
       gradient: 'from-amber-600 to-orange-600',
       imageUrl: STRAT_PLANNER_IMAGE_URL,
       imageAlt: 'Strategic Planner Pro Interface'
@@ -680,7 +680,7 @@ const App: React.FC = () => {
         'Validating Choices ',
         'Cross-Agency Collaboration'
       ],
-      link: '#/rtl',
+      link: 'https://asilvainnovations.github.io/website/rtl.html',
       gradient: 'from-emerald-600 to-teal-600',
       imageUrl: RTL_IMAGE_URL,
       imageAlt: 'Real-Time Leadership Banner'
@@ -695,7 +695,7 @@ const App: React.FC = () => {
         'Customized DRRM Integration - Disaster risk reduction',
         'Custom AI-Powered Online Courses on DRR-CCA, and Real-Time Leadership'
       ],
-      link: '#ai-solutions',
+      link: 'https://asilvainnovations.github.io/website/ai-solutions.html',
       gradient: 'from-violet-600 to-purple-600',
       imageUrl: AI_SOLUTIONS_IMAGE_URL,
       imageAlt: 'AI Solutions Platform'
@@ -860,7 +860,7 @@ const App: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://asilvainnovations.github.io/website/blog.html"
+                href="https://blog-leadership-analytics.deploypad.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-300 hover:text-blue-300 transition-colors py-2 px-1 flex items-center gap-1"
@@ -968,7 +968,7 @@ const App: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="https://asilvainnovations.github.io/website/blog.html"
+                  href="https://blog-leadership-analytics.deploypad.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
@@ -1049,7 +1049,7 @@ const App: React.FC = () => {
                   <span className="text-xl group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">→</span>
                 </a>
                 <a
-                  href="#services"
+                  href="https://asilvainnovations.github.io/website/solutions.html"
                   className="bg-slate-900/90 hover:bg-slate-800/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20 backdrop-blur-sm hover:border-blue-500/50 text-center hover:scale-105 active:scale-95"
                 >
                   View All Solutions
@@ -1193,7 +1193,7 @@ const App: React.FC = () => {
 
             <div className="mt-16 text-center animate-fadeInUp">
               <a
-                href="https://asilvainnovations.com/solutions"
+                href="https://asilvainnovations.github.io/website/solutions.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-blue-300 font-bold hover:text-blue-200 transition-all duration-300 text-lg group hover:scale-105"
