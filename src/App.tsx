@@ -569,7 +569,7 @@ export const Footer: React.FC<FooterProps> = ({
               Cookie Policy
             </a>
             <a 
-              href={cleanUrl("https://asilvainnovations.com/accessibility/")} 
+              href={cleanUrl("https://asilvainnovations.com/accessibility")} 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-white transition-colors"
@@ -860,7 +860,7 @@ const App: React.FC = () => {
                 </a>
               ))}
               <a
-                href="https://asilvainnovations.github.io/website/blog.html"
+                href="https://blog-leadership-analytics.deploypad.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-slate-300 hover:text-blue-300 transition-colors py-2 px-1 flex items-center gap-1"
@@ -968,7 +968,7 @@ const App: React.FC = () => {
                   </a>
                 ))}
                 <a
-                  href="https://asilvainnovations.github.io/website/blog.html"
+                  href="https://blog-leadership-analytics.deploypad.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setIsMenuOpen(false)}
@@ -1049,7 +1049,7 @@ const App: React.FC = () => {
                   <span className="text-xl group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true">→</span>
                 </a>
                 <a
-                  href="#services"
+                  href="https://asilvainnovations.github.io/website/solutions.html"
                   className="bg-slate-900/90 hover:bg-slate-800/90 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20 backdrop-blur-sm hover:border-blue-500/50 text-center hover:scale-105 active:scale-95"
                 >
                   View All Solutions
