@@ -1,0 +1,1 @@
+export { ElektraAssistant } from './ElektraAssistant';
