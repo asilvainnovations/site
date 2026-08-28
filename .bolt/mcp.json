@@ -17,6 +17,9 @@
     },
     "linear": {
       "enabled": true
+    },
+    "miro": {
+      "enabled": true
     }
   }
 }
